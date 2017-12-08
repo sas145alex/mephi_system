@@ -1,0 +1,16 @@
+%header.mb-5
+  %nav.navbar.navbar-default
+    %div.container-fluid
+      %div.navbar-header
+        = link_to root_path, class: 'navbar-brand' do
+          = image_tag 'logo.png', alt: t('app.company.short_name'),
+          size: "60x60", class: 'rounded-circle'
+          = Rails.application.class.parent_name
+
+      %div
+        %ul.nav.topbar-nav
+          - top_bar_items(@current_role_user).each do |item|
+            %li.nav-item
+            = link_to(url_for(controller: item[:controller], action: item[:action]), class: item[:class]) do
+              = fa_icon(item[:icon], class: 'menu-icon')
+              = item[:name]

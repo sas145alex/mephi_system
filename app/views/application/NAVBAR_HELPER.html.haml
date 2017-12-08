@@ -1,0 +1,46 @@
+%header.mb-5
+  %nav.navbar.navbar-default
+    %div.container-fluid
+      %div.navbar-header
+        = link_to( (image_tag('logo.png', size: "60x60",
+        class: 'rounded-circle')), root_path, {class: 'navbar-brand'})
+        = Rails.application.class.parent_name
+      %div
+        %ul.nav
+          %li.nav-item
+            -# = link_to('people', people_path, {class: 'nav-item nav-link'})
+            = link_to('root', root_path, {class: 'nav-item nav-link'})
+          %li.nav-item
+            = link_to('root', root_path, {class: 'nav-item nav-link'})
+            -# = link_to('documents', documents_path, {class: 'nav-item nav-link'})
+
+
+
+%aside.hidden-print#sidebar-wrapper
+  %ul.sidebar-nav
+    - top_bar_items(@current_role_user).each do |item|
+      %li
+        - if item.has_key?(:children)
+          = link_to('#', class: 'with-subitems') do
+            = fa_icon(item[:icon], class: 'menu-icon')
+            = item[:name]
+            %span.pull-right.carret
+              = fa_icon('angle-down', class: 'menu-icon')
+          %ul.subitems{class: (item[:children].any?{ |subitem| is_open?(subitem[:controller], subitem[:action]) } ? :subopen : :subclose)}
+            - item[:children].each do |subitem|
+              %li.subitem
+                - if subitem.has_key?(:params)
+                  = link_to(url_for({controller: subitem[:controller], action: subitem[:action]}.merge(subitem[:params])), class: subitem[:class]) do
+                    = fa_icon(subitem[:icon], class: 'menu-icon')
+                    = subitem[:name]
+                - else
+                  = link_to(url_for(controller: subitem[:controller], action: subitem[:action]), class: subitem[:class]) do
+                    = fa_icon(subitem[:icon], class: 'menu-icon')
+                    = subitem[:name]
+        - else
+          = link_to(url_for(controller: item[:controller], action: item[:action]), class: item[:class]) do
+            = fa_icon(item[:icon], class: 'menu-icon')
+            = item[:name]
+    %li.footer
+      %div
+        © В.Ю. Радыгин
