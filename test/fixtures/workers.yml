@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contract_start_date: 2017-12-08
+  contract_end_date: 2017-12-08
+  status: 1
+  person: one
+
+two:
+  contract_start_date: 2017-12-08
+  contract_end_date: 2017-12-08
+  status: 1
+  person: two

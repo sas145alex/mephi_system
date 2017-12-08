@@ -1,0 +1,35 @@
+= form_for @worker do |f|
+  = error_messages_for @worker
+
+
+  .row
+    .field.form-group.col-sm-6
+      = f.label :contract_start_date
+      .input-group.date.datepicker
+        = f.text_field(:contract_start_date,
+        value: lnil(f.object.contract_start_date),
+        class: 'form-control')
+        %span.input-group-addon
+          = fa_icon(:calendar)
+      -# = error_messages_for(f.object.contract_start_date)
+
+    .field.form-group.col-sm-6
+      = f.label :contract_end_date
+      .input-group.date.datepicker
+        = f.text_field(:contract_end_date,
+        value: lnil(f.object.contract_end_date),
+        class: 'form-control')
+        %span.input-group-addon
+          = fa_icon(:calendar)
+        -# = f.error_messages_for(:contract_end_date)
+    .field.form-group.col-sm-6
+      = f.label :status
+      = f.number_field :status, class: 'form-control'
+    .field.form-group.col-sm-6
+      = f.label :person_id
+      = f.select :person_id,
+      options_for_select(Person.all.map{|p| ["#{p.full_name} id:#{p.id}",
+      p.id]}, :person_id),
+      {}, {class: 'form-control'}
+  .actions
+    = f.submit 'Submit', class: 'btn btn-primary pull-right'

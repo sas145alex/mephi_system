@@ -1,0 +1,27 @@
+
+= link_to 'New Worker', new_worker_path, class: 'btn btn-primary pull-right'
+
+%h1 Listing workers
+%table.table.table-hover.table-striped
+  %thead
+    %tr
+      %th Contract start date
+      %th Contract end date
+      %th Status
+      %th Person
+      %th
+      %th
+      %th
+
+  %tbody
+    - @workers.each do |worker|
+      %tr
+        %td= worker.contract_start_date
+        %td= worker.contract_end_date
+        %td= worker.status
+        %td= worker.person
+        %td= link_to_show(worker)
+        %td= link_to_edit(edit_worker_path(worker))
+        %td= link_to_destroy(worker)
+
+%br

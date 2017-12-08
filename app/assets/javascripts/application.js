@@ -15,3 +15,11 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+
+// require moment
+// require bootstrap-datepicker
+//= require bootstrap-datepicker/core
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.ru.js
+// require bootstrap-datepicker/locales/bootstrap-datepicker.fr.js
+
+//= require main

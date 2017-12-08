@@ -1,0 +1,8 @@
+%h1 Editing worker
+
+= render 'form'
+
+%div.mt-3
+  = link_to_show(@worker)
+  \|
+  = link_to (fa_icon 'reply' ,text: 'Back'), workers_path, class: 'btn btn-secondary'

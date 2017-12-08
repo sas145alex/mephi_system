@@ -1,0 +1,8 @@
+%h1 Editing person
+
+= render 'form'
+
+%div.mt-3
+  = link_to_show(@person)
+  \|
+  = link_to (fa_icon 'reply' ,text: 'Back'), people_path, class: 'btn btn-secondary'

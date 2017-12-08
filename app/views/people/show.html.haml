@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%dl.row
+  %dt.col-sm-2
+    %b First name:
+  %dd.col-sm-10
+    = @person.first_name
+  %dt.col-sm-2
+    %b Last name:
+  %dd.col-sm-10
+    = @person.last_name
+  %dt.col-sm-2
+    %b Second name:
+  %dd.col-sm-10
+    = @person.second_name
+  %dt.col-sm-2
+    %b Birthday:
+  %dd.col-sm-10
+    = @person.birthday
+  %dt.col-sm-2
+    %b Passport:
+  %dd.col-sm-10
+    = @person.passport
+
+%td= link_to_edit(edit_person_path(@person))
+\|
+= link_to (fa_icon 'reply' ,text: 'Back'), people_path, class: 'btn btn-secondary'

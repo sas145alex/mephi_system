@@ -32,11 +32,14 @@ gem 'jbuilder', '~> 2.5'
 
 gem "autoprefixer-rails"
 gem 'ancestry'
+gem 'rails-i18n'
 gem 'paperclip', '~> 5.1.0'
 gem "font-awesome-rails"
 gem 'popper_js'
 gem 'jquery-rails'
+gem 'momentjs-rails'
 gem 'bootstrap'
+gem 'bootstrap-datepicker-rails'
 gem 'haml'
 gem "haml-rails"
 

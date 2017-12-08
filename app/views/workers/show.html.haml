@@ -1,0 +1,23 @@
+%p#notice= notice
+
+%dl.row
+  %dt.col-sm-2
+    %b Contract start date:
+  %dd.col-sm-10
+    = @worker.contract_start_date
+  %dt.col-sm-2
+    %b Contract end date:
+  %dd.col-sm-10
+    = @worker.contract_end_date
+  %dt.col-sm-2
+    %b Status:
+  %dd.col-sm-10
+    = @worker.status
+  %dt.col-sm-2
+    %b Person:
+  %dd.col-sm-10
+    = @worker.person
+
+%td= link_to_edit(edit_worker_path(@worker))
+\|
+= link_to (fa_icon 'reply' ,text: 'Back'), workers_path, class: 'btn btn-secondary'

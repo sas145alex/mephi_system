@@ -2,17 +2,17 @@ module TopBarHelper
   def top_bar_items(ru)
     result = []
     result << {
-      :name => 'root',
+      :name => 'people',
       # :icon => 'bed',
-      :controller => :welcome,
-      :action => :welcome,
+      :controller => :people,
+      :action => :index,
       :class => 'nav-item nav-link'
     }
     result << {
-      :name => 'root',
-      :icon => 'bed',
-      :controller => :welcome,
-      :action => :welcome,
+      :name => 'workers',
+      # :icon => 'bed',
+      :controller => :workers,
+      :action => :index,
       :class => 'nav-item nav-link'
     }
     # result << {
