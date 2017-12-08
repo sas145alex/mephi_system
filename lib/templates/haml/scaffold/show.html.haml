@@ -1,0 +1,13 @@
+%p#notice= notice
+
+%dl.row
+<% for attribute in attributes -%>
+  %dt.col-sm-2
+    %b <%= attribute.human_name %>:
+  %dd.col-sm-10
+    = @<%= singular_table_name %>.<%= attribute.name %>
+<% end -%>
+
+%td= link_to_edit(edit_<%= singular_table_name %>_path(@<%= singular_table_name %>))
+\|
+= link_to (fa_icon 'reply' ,text: 'Back'), <%= index_helper %>_path, class: 'btn btn-secondary'

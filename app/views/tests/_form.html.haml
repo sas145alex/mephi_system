@@ -1,0 +1,11 @@
+= form_for @test do |f|
+  = error_messages_for @test
+
+  .field.form-group
+    = f.label :test_string
+    = f.text_field :test_string, class: 'form-control'
+  .field.form-group
+    = f.label :test_int
+    = f.number_field :test_int, class: 'form-control'
+  .actions
+    = f.submit 'Submit', class: 'btn btn-primary pull-right'
