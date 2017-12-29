@@ -1,4 +1,4 @@
-%header.mb-5
+%header
   %nav.navbar.navbar-default
     %div.container-fluid
       %div.navbar-header
@@ -14,3 +14,5 @@
             = link_to(url_for(controller: item[:controller], action: item[:action]), class: item[:class]) do
               = fa_icon(item[:icon], class: 'menu-icon')
               = item[:name]
+          = link_to('toggleNav', '#wrapper', id: 'sidebar_toggler',
+          class: 'btn btn-info')

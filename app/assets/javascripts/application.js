@@ -23,3 +23,4 @@
 // require bootstrap-datepicker/locales/bootstrap-datepicker.fr.js
 
 //= require main
+//= require sidebar

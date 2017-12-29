@@ -1,0 +1,8 @@
+%h1 Editing post_department
+
+= render 'form'
+
+%div.mt-3
+  = link_to_show(@post_department)
+  \|
+  = link_to (fa_icon 'reply' ,text: 'Back'), post_departments_path, class: 'btn btn-secondary'

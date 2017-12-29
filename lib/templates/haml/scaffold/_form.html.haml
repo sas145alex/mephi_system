@@ -1,10 +1,12 @@
 = form_for @<%= singular_table_name %> do |f|
   = error_messages_for @<%= singular_table_name %>
 
+  .row
 <% for attribute in attributes -%>
-  .field.form-group
-    = f.label :<%= attribute.name %>
-    = f.<%= attribute.field_type %> :<%= attribute.name %>, class: 'form-control'
+    .field.form-group.col-sm-6
+      = f.label :<%= attribute.name %>
+      = f.<%= attribute.field_type %> :<%= attribute.name %>, class: 'form-control'
+      = error_messages_for_attr(f.object, :<%= attribute.name%>)
 <% end -%>
   .actions
     = f.submit 'Submit', class: 'btn btn-primary pull-right'

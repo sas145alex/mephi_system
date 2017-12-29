@@ -1,0 +1,30 @@
+%nav#sidebar
+  .sidebar-header
+    %h3 Navigation
+  %ul.list-unstyled.components
+    - side_bar_items(@current_role_user).each_with_index do |item, idx|
+      %li
+        - if item.has_key?(:children)
+          = link_to( "#submenu#{idx}" , class: 'with-subitems collapsed',
+          data: {toggle: 'collapse'},
+          aria: {expanded: false, controls: "#submenu#{idx}"}) do
+            = fa_icon(item[:icon], class: 'menu-icon')
+            = item[:name]
+            %span.pull-right
+              = fa_icon('angle-down', class: 'menu-icon carret')
+          -# %ul.subitems{class: (item[:children].any?{ |subitem| is_open?(subitem[:controller], subitem[:action]) } ? :subopen : :subclose)}
+          %ul.list-unstyled.subitems.collapse{id: "submenu#{idx}"}
+            - item[:children].each do |subitem|
+              %li.subitem
+                - if subitem.has_key?(:params)
+                  = link_to(url_for({controller: subitem[:controller], action: subitem[:action]}.merge(subitem[:params])), class: subitem[:class]) do
+                    = fa_icon(subitem[:icon], class: 'menu-icon')
+                    = subitem[:name]
+                - else
+                  = link_to(url_for(controller: subitem[:controller], action: subitem[:action]), class: subitem[:class]) do
+                    = fa_icon(subitem[:icon], class: 'menu-icon')
+                    = subitem[:name]
+        - else
+          = link_to(url_for(controller: item[:controller], action: item[:action]), class: item[:class]) do
+            = fa_icon(item[:icon], class: 'menu-icon')
+            = item[:name]

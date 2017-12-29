@@ -1,0 +1,14 @@
+= form_for @post do |f|
+  = error_messages_for @post
+
+  .row
+    .field.form-group.col-sm-6
+      = f.label :code
+      = f.text_field :code, class: 'form-control'
+      = error_messages_for_attr(f.object, :code)
+    .field.form-group.col-sm-6
+      = f.label :name
+      = f.text_field :name, class: 'form-control'
+      = error_messages_for_attr(f.object, :name)
+  .actions
+    = f.submit 'Submit', class: 'btn btn-primary pull-right'

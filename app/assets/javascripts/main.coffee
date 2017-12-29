@@ -5,11 +5,17 @@
 #   true
 
 
+# $('#sidebar').toggleClass('active')
+
+
+
+
 @datepicker_activation = ->
   window.datepicker_activation_by_item($(document))
+
 @datepicker_activation_by_item = (item)->
-  # item.find('.datepicker').datepicker({language: 'ru', format: 'DD.MM.YYYY'})
   item.find('.datepicker').datepicker({language: 'ru', format: 'dd.mm.yyyy'})
+
 app_ready_f = ->
   # loader_f()
   window.datepicker_activation()

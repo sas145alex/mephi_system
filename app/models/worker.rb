@@ -1,4 +1,8 @@
 class Worker < ApplicationRecord
+  has_many :post_departments
+  has_many :departments, through: :post_departments
+  has_many :posts, through: :post_departments
+
   belongs_to :person
 
   validates :contract_start_date, presence: true

@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%dl.row
+  %dt.col-sm-2
+    %b Name:
+  %dd.col-sm-10
+    = @department.name
+  %dt.col-sm-2
+    %b Description:
+  %dd.col-sm-10
+    = @department.description
+
+%td= link_to_edit(edit_department_path(@department))
+\|
+= link_to (fa_icon 'reply' ,text: 'Back'), departments_path, class: 'btn btn-secondary'

@@ -8,10 +8,12 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     = render 'application/header'
-    =render 'flash_messages'
+    = render 'flash_messages'
     -if content_for? :breadcrumb
-      =yield :breadcrumb
+      = yield :breadcrumb
     -if content_for? :error_messages
-      =yield :error_messages
-    #main-wrapper.container
-      = yield
+      = yield :error_messages
+    #wrapper
+      = render 'application/sidebar'
+      #main-content.container-fluid.mt-3
+        = yield

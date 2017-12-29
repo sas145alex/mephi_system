@@ -3,14 +3,14 @@ module TopBarHelper
     result = []
     result << {
       :name => 'people',
-      # :icon => 'bed',
+      :icon => 'bed',
       :controller => :people,
       :action => :index,
       :class => 'nav-item nav-link'
     }
     result << {
       :name => 'workers',
-      # :icon => 'bed',
+      :icon => 'bed',
       :controller => :workers,
       :action => :index,
       :class => 'nav-item nav-link'

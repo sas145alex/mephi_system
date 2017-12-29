@@ -1,20 +1,28 @@
 = form_for @person do |f|
   = error_messages_for @person
 
-  .field.form-group
-    = f.label :first_name
-    = f.text_field :first_name, class: 'form-control'
-  .field.form-group
-    = f.label :last_name
-    = f.text_field :last_name, class: 'form-control'
-  .field.form-group
-    = f.label :second_name
-    = f.text_field :second_name, class: 'form-control'
-  .field.form-group
-    = f.label :birthday
-    = f.date_select :birthday, class: 'form-control'
-  .field.form-group
-    = f.label :passport
-    = f.text_field :passport, class: 'form-control'
+  .row
+    .field.form-group.col-sm-6
+      = f.label :first_name
+      = f.text_field :first_name, class: 'form-control'
+      = error_messages_for_attr(f.object, :first_name)
+    .field.form-group.col-sm-6
+      = f.label :last_name
+      = f.text_field :last_name, class: 'form-control'
+    .field.form-group.col-sm-6
+      = f.label :second_name
+      = f.text_field :second_name, class: 'form-control'
+    .field.form-group.col-sm-6
+      = f.label :birthday
+      .input-group.date.datepicker
+        = f.text_field(:birthday,
+        value: lnil(f.object.birthday),
+        class: 'form-control')
+        %span.input-group-addon
+          = fa_icon(:calendar)
+    .field.form-group.col-sm-6
+      = f.label :passport
+      = f.text_field :passport, class: 'form-control'
+
   .actions
     = f.submit 'Submit', class: 'btn btn-primary pull-right'

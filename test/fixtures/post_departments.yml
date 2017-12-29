@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  post: one
+  department: one
+  worker: one
+
+two:
+  post: two
+  department: two
+  worker: two

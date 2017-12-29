@@ -1,0 +1,21 @@
+= form_for @department do |f|
+  = error_messages_for @department
+
+  .row
+    .field.form-group.col-sm-6
+      = f.label :name
+      = f.text_field :name, class: 'form-control'
+      = error_messages_for_attr(f.object, :name)
+    .field.form-group.col-sm-6
+      = f.label :parent_id
+      = f.select(:parent_id,
+      options_for_select(f.object.class.all_except(f.object).map{|d| ["#{d.name}", d.id]},
+      f.object.parent_id),
+      {include_blank: true}, {class: 'form-control'} )
+    .field.form-group.col-sm-12
+      = f.label :description
+      = f.text_area :description, class: 'form-control'
+      = error_messages_for_attr(f.object, :description)
+
+  .actions
+    = f.submit 'Submit', class: 'btn btn-primary pull-right'

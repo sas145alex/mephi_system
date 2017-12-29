@@ -1,0 +1,8 @@
+%h1 Editing department
+
+= render 'form'
+
+%div.mt-3
+  = link_to_show(@department)
+  \|
+  = link_to (fa_icon 'reply' ,text: 'Back'), departments_path, class: 'btn btn-secondary'
