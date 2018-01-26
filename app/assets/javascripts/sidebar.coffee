@@ -1,17 +1,17 @@
-togglef = ->
-  toggle_link = $(".with-subitems")
-  toggle_link.off('click')
-  toggle_link.on 'click', ->
-    $(this).parent().children(".subitems").toggle(300)
-    false
-  false
+# togglef = ->
+#   toggle_link = $(".with-subitems")
+#   toggle_link.off('click')
+#   toggle_link.on 'click', ->
+#     $(this).parent().children(".subitems").toggle(300)
+#     false
+#   false
 
 activate_handler_sidebar_toggle = ->
-  toggle_btn = $('#sidebar_toggler')
+  toggle_btn = $('#sidebar-toggler')
   toggle_btn.off('click')
   toggle_btn.on 'click', ->
-    id = toggle_btn.attr('href')
-    $(id).toggleClass('active-sidebar')
+    $('#sidebar').toggleClass('d-none d-sm-block d-block d-sm-none')
+    $('main').toggleClass('offset-md-2 offset-sm-3 col-sm-12 col-md-12')
     false
   false
 

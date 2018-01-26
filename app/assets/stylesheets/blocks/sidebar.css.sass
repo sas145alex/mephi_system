@@ -1,0 +1,60 @@
+/* Sidebar navigation */
+#sidebar
+	background: $sidebar-color
+	padding: 0
+	position: fixed !important
+	top: $header-height
+	bottom: 0
+	left: 0
+	z-index: 1000
+	overflow-x: hidden
+	// overflow-y: auto
+	border-right: 1px solid #eee
+	.nav
+	.nav-item
+		width: 100%
+		+
+			.nav-item
+				margin-left: 0
+	.nav-link
+		border-radius: 0
+	/*  sidebar spacers */
+	.sidebar-spacer
+		position: relative
+		width: 100%
+		background-color: $sidebar-spacer-color
+		height: $sidebar-toggler-size + (2 * $sidebar-toggler-top-offset)
+
+/*  sidebar toggler */
+#sidebar-toggler
+	text-decoration: none
+	display: flex
+	align-items: center
+	justify-content: center
+	width: $sidebar-toggler-size
+	height: $sidebar-toggler-size
+	margin-top: auto
+	margin-left: auto
+	border-radius:  0% 50% 50% 0%
+	background-color: $header-color
+	position: fixed
+	// left: ($sidebar-toggler-size / 5)
+	left: 0px
+	top: $header-height + $sidebar-toggler-top-offset
+	z-index: 1100
+
+
+
+
+// // Extra small devices (portrait phones, less than 576px)
+// @media (max-width: 575.99px)
+// 	#sidebar-toggler
+//
+// // Small devices (landscape phones, less than 768px)
+// @media (max-width: 767.99px)
+//
+// // Medium devices (tablets, less than 992px)
+// @media (max-width: 991.99px)
+//
+// // Large devices (desktops, less than 1200px)
+// @media (max-width: 1199.99px)
