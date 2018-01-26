@@ -1,13 +1,25 @@
+// general colors
 $main-color-dark:            #06397d
 $main-color-contrast:        #facb66
 $main-color:                 #82add6
 $main-color-light:           #e4e9f4
 $main-color-contrast-dark:   #911f1e
 
+// additional colors
 $color-white: #ffffff
 
+// block's variables
 $body-bg: $main-color-light
 $header-color: $main-color-dark
+$header-height: 85px
+$sidebar-color: lighten($main-color-dark, 10%)
 
+// element's colors
 $link-color:                 $main-color-contrast
 $link-hover-color:           $main-color-contrast-dark
+
+
+// other variables
+//calc(100% - $header-height) не работает!
+// $wrapper-height: calc(100% - ($header-height))
+$wrapper-height: calc(100% - (85px))

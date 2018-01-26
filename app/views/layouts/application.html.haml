@@ -7,13 +7,43 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    = render 'application/header'
+    = render 'application/header_nav'
     = render 'flash_messages'
     -if content_for? :breadcrumb
       = yield :breadcrumb
     -if content_for? :error_messages
       = yield :error_messages
-    #wrapper
-      = render 'application/sidebar'
-      #main-content.container-fluid.mt-3
-        = yield
+
+    #wrapper.container-fluid
+      .row
+        %nav{class: 'col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar'}
+          = render 'sidebar_content'
+
+        %main{class: 'col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3'}
+          %h1 Dashboard
+          %section.row.text-center.placeholders
+            .col-6.col-sm-3.placeholder
+              %img.img-fluid.rounded-circle{:alt => "Generic placeholder thumbnail", :height => "200", :src => "data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=", :width => "200"}/
+              %h4 Label
+              .text-muted Something else
+            .col-6.col-sm-3.placeholder
+              %img.img-fluid.rounded-circle{:alt => "Generic placeholder thumbnail", :height => "200", :src => "data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=", :width => "200"}/
+              %h4 Label
+              %span.text-muted Something else
+            .col-6.col-sm-3.placeholder
+              %img.img-fluid.rounded-circle{:alt => "Generic placeholder thumbnail", :height => "200", :src => "data:image/gif;base64,R0lGODlhAQABAIABAAJ12AAAACwAAAAAAQABAAACAkQBADs=", :width => "200"}/
+              %h4 Label
+              %span.text-muted Something else
+            .col-6.col-sm-3.placeholder
+              %img.img-fluid.rounded-circle{:alt => "Generic placeholder thumbnail", :height => "200", :src => "data:image/gif;base64,R0lGODlhAQABAIABAADcgwAAACwAAAAAAQABAAACAkQBADs=", :width => "200"}/
+              %h4 Label
+              %span.text-muted Something else
+          %h2 Section title
+          = yield
+
+
+    -# #wrapper.container.d-flex
+    -#   = render 'application/sidebar'
+    -#   #main-content.container.mt-3
+    -#     -# some text in main container
+    -#     = yield

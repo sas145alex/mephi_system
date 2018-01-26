@@ -44,3 +44,39 @@
     %li.footer
       %div
         © В.Ю. Радыгин
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    %div
+      %ul.nav.topbar-nav
+        - top_bar_items(@current_role_user).each do |item|
+          %li.nav-item
+          = link_to(url_for(controller: item[:controller], action: item[:action]), class: item[:class]) do
+            = fa_icon(item[:icon], class: 'menu-icon')
+            = item[:name]
+        = link_to('toggleNav', '#wrapper', id: 'sidebar_toggler',
+        class: 'btn btn-info')
+
+
+
+
+
+    .collapse.navbar-collapse#topNavbarSupportedContent
+      %ul.navbar-nav.mr-auto
+        %li.nav-item.active
+          = link_to 'Home', '#', class: 'nav-link'
+        %li.nav-item
+          = link_to 'Home', '#', class: 'nav-link'
