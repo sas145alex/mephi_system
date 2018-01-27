@@ -8,22 +8,43 @@
 	left: 0
 	z-index: 1000
 	overflow-x: hidden
-	// overflow-y: auto
-	border-right: 1px solid #eee
-	.nav
-	.nav-item
-		width: 100%
-		+
-			.nav-item
-				margin-left: 0
-	.nav-link
-		border-radius: 0
+	overflow-y: auto
+
 	/*  sidebar spacers */
 	.sidebar-spacer
 		position: relative
 		width: 100%
 		background-color: $sidebar-spacer-color
 		height: $sidebar-toggler-size + (2 * $sidebar-toggler-top-offset)
+
+	/* sidebar elements */
+	ul
+		margin: 4px
+		li
+			font-size: 15pt
+			a
+				transition: color 0.15s
+				box-sizing: border-box
+				padding: 5px
+				display: block
+				min-height: $sidebar-item-height
+				text-align: left
+				text-decoration: none
+
+			/* lists with childrens */
+			li.subitem
+				font-size: 13pt
+				margin-left: 10px
+		// переворот корретки в боковом меню при нажатии
+		a[aria-expanded="true"]
+			.carret
+				transform: rotate(180deg)
+				transition: transform 0.3s
+		a[aria-expanded="false"]
+			.carret
+				transform: rotate(0deg)
+				transition: transform 0.3s
+
 
 /*  sidebar toggler */
 #sidebar-toggler
@@ -47,8 +68,14 @@
 
 
 // // Extra small devices (portrait phones, less than 576px)
-// @media (max-width: 575.99px)
-// 	#sidebar-toggler
+@media (max-width: 575.99px)
+	#sidebar
+		ul
+			font-size: 20pt
+		ul.subitems
+			font-size: 16pt
+			a
+				margin-left: 20px
 //
 // // Small devices (landscape phones, less than 768px)
 // @media (max-width: 767.99px)

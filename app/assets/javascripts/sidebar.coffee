@@ -11,13 +11,13 @@ activate_handler_sidebar_toggle = ->
   toggle_btn.off('click')
   toggle_btn.on 'click', ->
     $('#sidebar').toggleClass('d-none d-sm-block d-block d-sm-none')
-    $('main').toggleClass('offset-md-2 offset-sm-3 col-sm-12 col-md-12')
+    $('main').toggleClass('offset-lg-2 offset-sm-3 col-sm-12 col-lg-12')
     false
   false
 
 app_ready_f = ->
   activate_handler_sidebar_toggle()
-  togglef()
+  # togglef()
 
 $(document).ready app_ready_f
 $(document).on 'turbolinks:load', app_ready_f
