@@ -6,14 +6,20 @@ class Worker < ApplicationRecord
   belongs_to :person
 
   validates :contract_start_date, presence: true
-  validates :contract_end_date, presence: true
+  # validates :contract_end_date, presence: true
   validates :status, presence: true
 
-  validate :contract_end_date_must_be_later_than_start_date
+  validates :contract_end_date, presence: true
 
-  def contract_end_date_must_be_later_than_start_date
-    return if self.contract_start_date.nil? || self.contract_end_date.nil?
-    errors.add(:contract_end_date, 'must be later than contract end date') if
-    self.contract_end_date < self.contract_start_date
+  after_validation :contract_dates_validation
+
+  def contract_dates_validation
+    if self[:contract_end_date] <= self[:contract_start_date]
+      errors[:contract_end_date] << I18n.t('activerecord.errors.messages.workers.end_date_must_greater_than_start_date')
+      return false
+    else
+      return true
+    end
   end
+
 end

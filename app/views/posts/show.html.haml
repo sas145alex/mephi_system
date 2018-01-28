@@ -1,15 +1,17 @@
+-# %h1= t('views.entites.posts.edit.title')
+
 %p#notice= notice
 
 %dl.row
   %dt.col-sm-2
-    %b Code:
+    %b= Post.human_attribute_name(:code)
   %dd.col-sm-10
     = @post.code
   %dt.col-sm-2
-    %b Name:
+    %b= Post.human_attribute_name(:name)
   %dd.col-sm-10
     = @post.name
 
 %td= link_to_edit(edit_post_path(@post))
 \|
-= link_to (fa_icon 'reply' ,text: 'Back'), posts_path, class: 'btn btn-secondary'
+= link_to (fa_icon 'reply' ,text: t('views.general.links.back') ), posts_path, class: 'btn btn-secondary'

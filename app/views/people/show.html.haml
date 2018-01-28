@@ -27,3 +27,5 @@
 %td= link_to_edit(edit_person_path(@person))
 \|
 = link_to (fa_icon 'reply' ,text: t('views.general.links.back') ), people_path, class: 'btn btn-secondary'
+\|
+= link_to_destroy(@person)

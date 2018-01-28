@@ -1,8 +1,10 @@
-%h1 Editing department
+%h1= t('views.entites.departments.edit.title')
 
 = render 'form'
 
 %div.mt-3
   = link_to_show(@department)
   \|
-  = link_to (fa_icon 'reply' ,text: 'Back'), departments_path, class: 'btn btn-secondary'
+  = link_to (fa_icon 'reply' ,text: t('views.general.links.back') ), departments_path, class: 'btn btn-secondary'
+  \|
+  = link_to_destroy(@department)

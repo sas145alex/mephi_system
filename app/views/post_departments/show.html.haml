@@ -1,19 +1,23 @@
+-# %h1= t('views.entites.post_departments.edit.title')
+
 %p#notice= notice
 
 %dl.row
   %dt.col-sm-2
-    %b Post:
+    %b= PostDepartment.human_attribute_name(:post)
   %dd.col-sm-10
     = @post_department.post
   %dt.col-sm-2
-    %b Department:
+    %b= PostDepartment.human_attribute_name(:department)
   %dd.col-sm-10
     = @post_department.department
   %dt.col-sm-2
-    %b Worker:
+    %b= PostDepartment.human_attribute_name(:worker)
   %dd.col-sm-10
     = @post_department.worker
 
 %td= link_to_edit(edit_post_department_path(@post_department))
 \|
-= link_to (fa_icon 'reply' ,text: 'Back'), post_departments_path, class: 'btn btn-secondary'
+= link_to (fa_icon 'reply' ,text: t('views.general.links.back') ), post_departments_path, class: 'btn btn-secondary'
+\|
+= link_to_destroy(@post_department)

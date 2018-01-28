@@ -1,5 +1,5 @@
-%h1 New worker
+%h1= t('views.entites.workers.new.title')
 
 = render 'form'
 
-= link_to (fa_icon 'reply' ,text: 'Back'), workers_path, class: 'btn btn-secondary'
+= link_to (fa_icon 'reply' ,text: t('views.general.links.back') ), workers_path, class: 'btn btn-secondary'

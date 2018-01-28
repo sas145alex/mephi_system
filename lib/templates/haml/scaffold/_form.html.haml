@@ -3,6 +3,7 @@
 
   .row
 <% for attribute in attributes -%>
+
     -# attribute = <%= attribute.name %>
     -# field_type = <%= attribute.field_type %>
 <% if attribute.field_type == :date_select -%>
@@ -14,7 +15,7 @@
         class: 'form-control')
         %span.input-group-addon
           = fa_icon(:calendar)
-    = error_messages_for_attr(f.object, :<%= attribute.name %>)
+      = error_messages_for_attr(f.object, :<%= attribute.name %>)
 <% else -%>
     .field.form-group.col-sm-6
       = f.label <%= plural_table_name.classify %>.human_attribute_name(:<%= attribute.name %>)

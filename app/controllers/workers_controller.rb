@@ -2,13 +2,11 @@ class WorkersController < ApplicationController
   before_action :set_worker, only: [:show, :edit, :update, :destroy]
 
   # GET /workers
-  # GET /workers.json
   def index
     @workers = Worker.all
   end
 
   # GET /workers/1
-  # GET /workers/1.json
   def show
   end
 
@@ -22,43 +20,31 @@ class WorkersController < ApplicationController
   end
 
   # POST /workers
-  # POST /workers.json
   def create
+    # raise params.inspect
+
     @worker = Worker.new(worker_params)
 
-    respond_to do |format|
-      if @worker.save
-        format.html { redirect_to @worker, notice: 'Worker was successfully created.' }
-        format.json { render :show, status: :created, location: @worker }
-      else
-        format.html { render :new }
-        format.json { render json: @worker.errors, status: :unprocessable_entity }
-      end
+    if @worker.save
+      redirect_to @worker, notice: t('controllers.workers.actions.create.success')
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /workers/1
-  # PATCH/PUT /workers/1.json
   def update
-    respond_to do |format|
-      if @worker.update(worker_params)
-        format.html { redirect_to @worker, notice: 'Worker was successfully updated.' }
-        format.json { render :show, status: :ok, location: @worker }
-      else
-        format.html { render :edit }
-        format.json { render json: @worker.errors, status: :unprocessable_entity }
-      end
+    if @worker.update(worker_params)
+      redirect_to @worker, notice: t('controllers.workers.actions.update.success')
+    else
+      render :edit
     end
   end
 
   # DELETE /workers/1
-  # DELETE /workers/1.json
   def destroy
     @worker.destroy
-    respond_to do |format|
-      format.html { redirect_to workers_url, notice: 'Worker was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to workers_url, notice: t('controllers.workers.actions.destroy.success')
   end
 
   private
@@ -67,7 +53,7 @@ class WorkersController < ApplicationController
       @worker = Worker.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Only allow a trusted parameter "white list" through.
     def worker_params
       params.require(:worker).permit(:contract_start_date, :contract_end_date, :status, :person_id)
     end

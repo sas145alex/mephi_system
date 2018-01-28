@@ -1,35 +1,55 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
+
+# Structure
 #
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
+# ru
+# --controllers
+# ----people
+# --views
+# ----general
+# ----entites
+# --activerecord
+# ----models
+# ----attributes
+# ----errors
+
+
+
+
 
 ru:
+  controllers:
+    workers:
+      actions:
+        create:
+          success: Создание работника прошло успешно!
+        update:
+          success: Редактирование работника прошло успешно!
+        destroy:
+          success: Удаление работника прошло успешно!
+    people:
+      actions:
+        create:
+          success: Создание человека прошло успешно!
+        update:
+          success: Редактирование человека прошло успешно!
+        destroy:
+          success: Удаление человека прошло успешно!
+    posts:
+      actions:
+        create:
+          success: Создание должности прошло успешно!
+        update:
+          success: Редактирование должности прошло успешно!
+        destroy:
+          success: Удаление должности прошло успешно!
+    departments:
+      actions:
+        create:
+          success: Создание отдела прошло успешно!
+        update:
+          success: Редактирование отдела прошло успешно!
+        destroy:
+          success: Удаление отдела прошло успешно!
   views:
     general:
       links:
@@ -39,16 +59,74 @@ ru:
         destroy: Удалить
         edit: Изменить
         submit: Подтвердить
+      questions:
+        sure: Вы действительно хотите это сделать?
     entites:
       people:
         edit:
-          title: Edit
+          title: Редактирование персоны
+        show:
+          title: Сведения о персоне
+        index:
+          title: Список людей
+        new:
+          title: Новый человек
+      workers:
+        edit:
+          title: Редактирование работника
+        show:
+          title: Сведения о работнике
+        index:
+          title: Список работников
+        new:
+          title: Новый работник
+      posts:
+        edit:
+          title: Редактирование должности
+        show:
+          title: Сведения о должности
+        index:
+          title: Список должностей
+        new:
+          title: Новая должность
+      departments:
+        edit:
+          title: Редактирование отдела
+        show:
+          title: Сведения об отделе
+        index:
+          title: Список отделов
+        new:
+          title: Новый отдел
   activerecord:
     models:
+      post: Должность
       person: Человек
+      workers: Работники
+      departments: Отделы
     attributes:
       person:
         first_name: Имя
+        second_name: Отчество
+        last_name: Фамилия
+        birthday: Дата рождения
+        passport: Пасспорт
+      worker:
+        contract_start_date: Дата начала контракта
+        contract_end_date: Дата окончания контракта
+        status: Статус
+        person: Человек
+      post:
+        code: Код
+        name: Название
+      department:
+        name: Название
+        description: Описание
+        parent_id: Родительский отдел
+        parent: Родительский отдел
+        children: Дочерние отделы
     errors:
       messages:
+        workers:
+          end_date_must_greater_than_start_date: Дата окончания контракта должна быть позже чем дата начала контракта
         # blank: 123

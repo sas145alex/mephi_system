@@ -6,3 +6,5 @@
   = link_to_show(@<%= singular_table_name %>)
   \|
   = link_to (fa_icon 'reply' ,text: t('views.general.links.back') ), <%= index_helper %>_path, class: 'btn btn-secondary'
+  \|
+  = link_to_destroy(@<%= singular_table_name %>)

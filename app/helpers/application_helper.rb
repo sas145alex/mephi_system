@@ -9,7 +9,7 @@ module ApplicationHelper
 
   def link_to_destroy(path, text=t('views.general.links.destroy') )
     link_to( (fa_icon 'ban', text: text), path, method: :delete,
-    data: { confirm: t('vies.heneral.questions.sure') }, class: "btn btn-danger")
+    data: { confirm: t('views.general.questions.sure') }, class: "btn btn-danger")
   end
 
   def lnil(data)

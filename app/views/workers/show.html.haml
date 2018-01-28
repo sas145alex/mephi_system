@@ -1,23 +1,27 @@
+-# %h1= t('views.entites.workers.edit.title')
+
 %p#notice= notice
 
 %dl.row
   %dt.col-sm-2
-    %b Contract start date:
+    %b= Worker.human_attribute_name(:contract_start_date)
   %dd.col-sm-10
     = @worker.contract_start_date
   %dt.col-sm-2
-    %b Contract end date:
+    %b= Worker.human_attribute_name(:contract_end_date)
   %dd.col-sm-10
     = @worker.contract_end_date
   %dt.col-sm-2
-    %b Status:
+    %b= Worker.human_attribute_name(:status)
   %dd.col-sm-10
     = @worker.status
   %dt.col-sm-2
-    %b Person:
+    %b= Worker.human_attribute_name(:person)
   %dd.col-sm-10
     = @worker.person
 
 %td= link_to_edit(edit_worker_path(@worker))
 \|
-= link_to (fa_icon 'reply' ,text: 'Back'), workers_path, class: 'btn btn-secondary'
+= link_to (fa_icon 'reply' ,text: t('views.general.links.back') ), workers_path, class: 'btn btn-secondary'
+\|
+= link_to (fa_icon 'reply' ,text: t('views.general.links.back') ), workers_path, class: 'btn btn-secondary'

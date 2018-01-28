@@ -2,17 +2,27 @@
   = error_messages_for @post_department
 
   .row
+
+    -# attribute = post
+    -# field_type = text_field
     .field.form-group.col-sm-6
-      = f.label :post
+      = f.label PostDepartment.human_attribute_name(:post)
       = f.text_field :post, class: 'form-control'
       = error_messages_for_attr(f.object, :post)
+
+    -# attribute = department
+    -# field_type = text_field
     .field.form-group.col-sm-6
-      = f.label :department
+      = f.label PostDepartment.human_attribute_name(:department)
       = f.text_field :department, class: 'form-control'
       = error_messages_for_attr(f.object, :department)
+
+    -# attribute = worker
+    -# field_type = text_field
     .field.form-group.col-sm-6
-      = f.label :worker
+      = f.label PostDepartment.human_attribute_name(:worker)
       = f.text_field :worker, class: 'form-control'
       = error_messages_for_attr(f.object, :worker)
+
   .actions
-    = f.submit 'Submit', class: 'btn btn-primary pull-right'
+    = f.submit t('views.general.links.submit'), class: 'btn btn-primary pull-right'

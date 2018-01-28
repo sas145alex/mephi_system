@@ -4,7 +4,7 @@ class Person < ApplicationRecord
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :birthday, presence: true
-  validates :passport, uniqueness: true
+  validates :passport, uniqueness: true, presence: true
 
 
   def full_name

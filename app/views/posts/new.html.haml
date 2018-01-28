@@ -1,5 +1,5 @@
-%h1 New post
+%h1= t('views.entites.posts.new.title')
 
 = render 'form'
 
-= link_to (fa_icon 'reply' ,text: 'Back'), posts_path, class: 'btn btn-secondary'
+= link_to (fa_icon 'reply' ,text: t('views.general.links.back') ), posts_path, class: 'btn btn-secondary'

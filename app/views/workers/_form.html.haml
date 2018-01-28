@@ -1,8 +1,10 @@
 = form_for @worker do |f|
   = error_messages_for @worker
 
-
   .row
+
+    -# attribute = contract_start_date
+    -# field_type = date_select
     .field.form-group.col-sm-6
       = f.label :contract_start_date
       .input-group.date.datepicker
@@ -11,8 +13,10 @@
         class: 'form-control')
         %span.input-group-addon
           = fa_icon(:calendar)
-      -# = error_messages_for(f.object.contract_start_date)
+      = error_messages_for_attr(f.object, :contract_start_date)
 
+    -# attribute = contract_end_date
+    -# field_type = date_select
     .field.form-group.col-sm-6
       = f.label :contract_end_date
       .input-group.date.datepicker
@@ -21,15 +25,24 @@
         class: 'form-control')
         %span.input-group-addon
           = fa_icon(:calendar)
-        -# = f.error_messages_for(:contract_end_date)
+      = error_messages_for_attr(f.object, :contract_end_date)
+
+    -# attribute = status
+    -# field_type = number_field
     .field.form-group.col-sm-6
-      = f.label :status
+      = f.label Worker.human_attribute_name(:status)
       = f.number_field :status, class: 'form-control'
+      = error_messages_for_attr(f.object, :status)
+
+    -# attribute = person
+    -# field_type = text_field
     .field.form-group.col-sm-6
-      = f.label :person_id
+      = f.label Worker.human_attribute_name(:person)
       = f.select :person_id,
       options_for_select(Person.all.map{|p| ["#{p.full_name} id:#{p.id}",
       p.id]}, :person_id),
       {}, {class: 'form-control'}
+      = error_messages_for_attr(f.object, :person)
+
   .actions
-    = f.submit 'Submit', class: 'btn btn-primary pull-right'
+    = f.submit t('views.general.links.submit'), class: 'btn btn-primary pull-right'
