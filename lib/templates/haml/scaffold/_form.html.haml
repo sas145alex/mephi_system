@@ -3,10 +3,25 @@
 
   .row
 <% for attribute in attributes -%>
+    -# attribute = <%= attribute.name %>
+    -# field_type = <%= attribute.field_type %>
+<% if attribute.field_type == :date_select -%>
     .field.form-group.col-sm-6
       = f.label :<%= attribute.name %>
+      .input-group.date.datepicker
+        = f.text_field(:<%= attribute.name %>,
+        value: lnil(f.object.<%= attribute.name %>),
+        class: 'form-control')
+        %span.input-group-addon
+          = fa_icon(:calendar)
+    = error_messages_for_attr(f.object, :<%= attribute.name %>)
+<% else -%>
+    .field.form-group.col-sm-6
+      = f.label <%= plural_table_name.classify %>.human_attribute_name(:<%= attribute.name %>)
       = f.<%= attribute.field_type %> :<%= attribute.name %>, class: 'form-control'
       = error_messages_for_attr(f.object, :<%= attribute.name%>)
 <% end -%>
+<% end -%>
+
   .actions
-    = f.submit 'Submit', class: 'btn btn-primary pull-right'
+    = f.submit t('views.general.links.submit'), class: 'btn btn-primary pull-right'

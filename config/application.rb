@@ -16,7 +16,7 @@ module MephiSystem
     # -- all .rb files in that directory are automatically loaded.
 
 
-    # config.i18n.default_locale = :ru
+    config.i18n.default_locale = :ru
 
     config.generators do |g|
       g.templates.unshift File::expand_path('../templates', __FILE__)

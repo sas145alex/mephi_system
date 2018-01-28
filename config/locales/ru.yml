@@ -30,4 +30,25 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 ru:
-  hello: "Hello world"
+  views:
+    general:
+      links:
+        back: Назад
+        show: Показать
+        new: Добавить
+        destroy: Удалить
+        edit: Изменить
+        submit: Подтвердить
+    entites:
+      people:
+        edit:
+          title: Edit
+  activerecord:
+    models:
+      person: Человек
+    attributes:
+      person:
+        first_name: Имя
+    errors:
+      messages:
+        # blank: 123

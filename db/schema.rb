@@ -47,8 +47,8 @@ ActiveRecord::Schema.define(version: 20171229170116) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "code"
-    t.string "name"
+    t.string "code", null: false
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

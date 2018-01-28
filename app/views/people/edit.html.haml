@@ -1,8 +1,8 @@
-%h1 Editing person
+%h1= t('views.entites.people.edit.title')
 
 = render 'form'
 
 %div.mt-3
   = link_to_show(@person)
   \|
-  = link_to (fa_icon 'reply' ,text: 'Back'), people_path, class: 'btn btn-secondary'
+  = link_to (fa_icon 'reply' ,text: t('views.general.links.back') ), people_path, class: 'btn btn-secondary'

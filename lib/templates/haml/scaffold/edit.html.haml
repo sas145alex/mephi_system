@@ -1,8 +1,8 @@
-%h1 Editing <%= singular_table_name %>
+%h1= t('views.entites.<%= table_name %>.edit.title')
 
 = render 'form'
 
 %div.mt-3
   = link_to_show(@<%= singular_table_name %>)
   \|
-  = link_to (fa_icon 'reply' ,text: 'Back'), <%= index_helper %>_path, class: 'btn btn-secondary'
+  = link_to (fa_icon 'reply' ,text: t('views.general.links.back') ), <%= index_helper %>_path, class: 'btn btn-secondary'

@@ -2,16 +2,26 @@
   = error_messages_for @person
 
   .row
+    -# attribute = first_name
+    -# field_type = text_field
     .field.form-group.col-sm-6
-      = f.label :first_name
+      = f.label Person.human_attribute_name(:first_name)
       = f.text_field :first_name, class: 'form-control'
       = error_messages_for_attr(f.object, :first_name)
+    -# attribute = last_name
+    -# field_type = text_field
     .field.form-group.col-sm-6
-      = f.label :last_name
+      = f.label Person.human_attribute_name(:last_name)
       = f.text_field :last_name, class: 'form-control'
+      = error_messages_for_attr(f.object, :last_name)
+    -# attribute = second_name
+    -# field_type = text_field
     .field.form-group.col-sm-6
-      = f.label :second_name
+      = f.label Person.human_attribute_name(:second_name)
       = f.text_field :second_name, class: 'form-control'
+      = error_messages_for_attr(f.object, :second_name)
+    -# attribute = birthday
+    -# field_type = date_select
     .field.form-group.col-sm-6
       = f.label :birthday
       .input-group.date.datepicker
@@ -20,9 +30,13 @@
         class: 'form-control')
         %span.input-group-addon
           = fa_icon(:calendar)
+    = error_messages_for_attr(f.object, :birthday)
+    -# attribute = passport
+    -# field_type = text_field
     .field.form-group.col-sm-6
-      = f.label :passport
+      = f.label Person.human_attribute_name(:passport)
       = f.text_field :passport, class: 'form-control'
+      = error_messages_for_attr(f.object, :passport)
 
   .actions
-    = f.submit 'Submit', class: 'btn btn-primary pull-right'
+    = f.submit t('views.general.links.submit'), class: 'btn btn-primary pull-right'
