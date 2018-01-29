@@ -3,13 +3,17 @@
 #
 # ru
 # --controllers
-# ----people
+# ----'entites'
+# ------actions
 # --views
 # ----general
 # ----entites
+# ------'entity'
 # --activerecord
 # ----models
 # ----attributes
+# ------'entity'
+# --------'attributes'
 # ----errors
 
 
@@ -81,6 +85,10 @@ ru:
         new:
           title: Новый работник
       posts:
+        select:
+          department: Выберите отделы
+        links:
+          add_department: Добавить отдел
         edit:
           title: Редактирование должности
         show:
@@ -102,8 +110,8 @@ ru:
     models:
       post: Должность
       person: Человек
-      workers: Работники
-      departments: Отделы
+      worker: Работник
+      department: Отдел
     attributes:
       person:
         first_name: Имя
@@ -119,6 +127,9 @@ ru:
       post:
         code: Код
         name: Название
+        department_ids: Отделы
+        departments: Отделы
+        workers: Работники
       department:
         name: Название
         description: Описание

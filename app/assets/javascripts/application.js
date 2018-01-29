@@ -18,8 +18,12 @@
 
 // require moment
 // require bootstrap-datepicker
+
 //= require bootstrap-datepicker/core
 //= require bootstrap-datepicker/locales/bootstrap-datepicker.ru.js
+
+//= require cocoon
+//= require select2
 
 //= require main
 //= require sidebar

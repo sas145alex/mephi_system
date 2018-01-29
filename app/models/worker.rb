@@ -1,14 +1,12 @@
 class Worker < ApplicationRecord
-  has_many :post_departments
-  has_many :departments, through: :post_departments
-  has_many :posts, through: :post_departments
-
   belongs_to :person
+  belongs_to :post_department
 
-  validates :contract_start_date, presence: true
-  # validates :contract_end_date, presence: true
+  has_one :department, through: :post_department
+  has_one :post,       through: :post_department
+
   validates :status, presence: true
-
+  validates :contract_start_date, presence: true
   validates :contract_end_date, presence: true
 
   after_validation :contract_dates_validation

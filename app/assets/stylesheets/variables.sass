@@ -7,6 +7,8 @@ $main-color-contrast-dark:   #911f1e
 
 /* additional colors */
 $color-white: #ffffff
+$color-lighten-main-dark: lighten($main-color-dark, 10%)
+$color-more-lighten-main-dark: lighten($color-lighten-main-dark, 15%)
 
 /* block's variables */
 $body-bg: $main-color-light
@@ -14,13 +16,14 @@ $body-bg: $main-color-light
 $header-color: $main-color-dark
 $header-height: 60px
 
-$sidebar-color: lighten($main-color-dark, 10%)
-$sidebar-spacer-color: lighten($sidebar-color, 15%)
+$sidebar-color: $color-lighten-main-dark
+$sidebar-spacer-color: $color-more-lighten-main-dark
 $sidebar-toggler-size: 40px
 $sidebar-toggler-top-offset: 3px
 $sidebar-item-height: 35px
 
 /* element's colors */
+$multiple-select2-background-highlighted: $color-lighten-main-dark
 $link-color:                 $main-color-contrast
 $link-hover-color:           $main-color-contrast-dark
 

@@ -32,6 +32,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem "autoprefixer-rails"
 gem 'ancestry'
+gem 'cocoon'
+gem 'select2-rails'
 gem 'rails-i18n'
 gem 'paperclip', '~> 5.1.0'
 gem "font-awesome-rails"

@@ -21,6 +21,8 @@ class PostsController < ApplicationController
 
   # POST /posts
   def create
+    # raise params.inspect
+
     @post = Post.new(post_params)
 
     if @post.save
@@ -32,6 +34,8 @@ class PostsController < ApplicationController
 
   # PATCH/PUT /posts/1
   def update
+    # raise params.inspect
+
     if @post.update(post_params)
       redirect_to @post, notice: t('controllers.posts.actions.update.success')
     else
@@ -53,6 +57,11 @@ class PostsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def post_params
-      params.require(:post).permit(:code, :name)
+      params.require(:post).permit(
+        :code, :name, department_ids: []
+         # post_departments_attributes:
+         #  [:_destroy, :department_id, :id, department_attributes:
+         #    Department.attributes_names.push(:_destroy)]
+      )
     end
 end

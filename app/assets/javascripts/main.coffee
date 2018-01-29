@@ -9,6 +9,8 @@
 
 
 
+@select2_activation = ->
+  window.select2_activation_by_item($(document))
 
 @datepicker_activation = ->
   window.datepicker_activation_by_item($(document))
@@ -16,9 +18,16 @@
 @datepicker_activation_by_item = (item)->
   item.find('.datepicker').datepicker({language: 'ru', format: 'dd.mm.yyyy'})
 
+@select2_activation_by_item = (item)->
+  item.find('.select2').select2({theme: "bootstrap"})
+  $('span.select2-container').removeAttr('style')
+
+
+
 app_ready_f = ->
   # loader_f()
   window.datepicker_activation()
+  window.select2_activation()
 
 
 $(document).ready app_ready_f

@@ -1,5 +1,9 @@
 = form_for @post do |f|
+  .actions
+    = f.submit t('views.general.links.submit'), class: 'btn btn-primary mb-2'
   = error_messages_for @post
+
+
 
   .row
 
@@ -17,5 +21,12 @@
       = f.text_field :name, class: 'form-control'
       = error_messages_for_attr(f.object, :name)
 
-  .actions
-    = f.submit t('views.general.links.submit'), class: 'btn btn-primary pull-right'
+    .field.form-group.col-sm-12.form-group-with-select2
+      = f.label Post.human_attribute_name(:department_ids)
+      = f.collection_select(:department_ids,
+      Department.all, :id, :name,
+      {include_blank: false, prompt: I18n.t('views.entites.posts.select.department')},
+      {multiple: true, class: 'select2 select2-selector'})
+      = error_messages_for_attr(f.object, :department_ids)
+
+-# {include_blank: false, prompt: I18n.t('.department')},

@@ -6,6 +6,8 @@
     %tr
       %th= Post.human_attribute_name(:code)
       %th= Post.human_attribute_name(:name)
+      %th= Post.human_attribute_name(:departments)
+      %th= Post.human_attribute_name(:workers)
       %th
       %th
       %th
@@ -15,6 +17,8 @@
       %tr
         %td= post.code
         %td= post.name
+        %td= post.departments.map {|d| d.name}.join(', ')
+        %td= post.worker_ids
         %td= link_to_show(post)
         %td= link_to_edit(edit_post_path(post))
         %td= link_to_destroy(post)

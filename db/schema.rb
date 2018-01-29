@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171229170116) do
+ActiveRecord::Schema.define(version: 20180129105511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,13 +37,11 @@ ActiveRecord::Schema.define(version: 20171229170116) do
   create_table "post_departments", force: :cascade do |t|
     t.bigint "post_id", null: false
     t.bigint "department_id", null: false
-    t.bigint "worker_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["department_id"], name: "index_post_departments_on_department_id"
-    t.index ["post_id", "department_id", "worker_id"], name: "index_post_departments_for_uniqueness_relations", unique: true
+    t.index ["post_id", "department_id"], name: "index_post_departments_for_uniqueness_relations_post_department", unique: true
     t.index ["post_id"], name: "index_post_departments_on_post_id"
-    t.index ["worker_id"], name: "index_post_departments_on_worker_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -60,11 +58,12 @@ ActiveRecord::Schema.define(version: 20171229170116) do
     t.bigint "person_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "post_department_id"
     t.index ["person_id"], name: "index_workers_on_person_id"
+    t.index ["post_department_id"], name: "index_workers_on_post_department_id"
   end
 
   add_foreign_key "post_departments", "departments"
   add_foreign_key "post_departments", "posts"
-  add_foreign_key "post_departments", "workers"
   add_foreign_key "workers", "people"
 end

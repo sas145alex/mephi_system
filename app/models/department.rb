@@ -1,7 +1,8 @@
 class Department < ApplicationRecord
+
   has_many :post_departments
-  has_many :workers, through: :post_departments
   has_many :posts, through: :post_departments
+  has_many :workers, through: :post_departments
   has_ancestry :orphan_strategy => :adopt
 
   validates :name, presence: true, uniqueness: true
@@ -17,6 +18,11 @@ class Department < ApplicationRecord
       return false
     end
     true
+  end
+
+  def self.attributes_names
+    arr = self.new.attribute_names - ['created_at', 'updated_at']
+    arr.map(&:to_sym)
   end
 
 end

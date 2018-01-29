@@ -6,7 +6,7 @@
     %tr
       %th= PostDepartment.human_attribute_name(:post)
       %th= PostDepartment.human_attribute_name(:department)
-      %th= PostDepartment.human_attribute_name(:worker)
+      %th= PostDepartment.human_attribute_name(:workers)
       %th
       %th
       %th
@@ -14,9 +14,9 @@
   %tbody
     - @post_departments.each do |post_department|
       %tr
-        %td= post_department.post
-        %td= post_department.department
-        %td= post_department.worker
+        %td= post_department.post.name
+        %td= post_department.department.name
+        %td= post_department.workers.pluck(:id)
         %td= link_to_show(post_department)
         %td= link_to_edit(edit_post_department_path(post_department))
         %td= link_to_destroy(post_department)

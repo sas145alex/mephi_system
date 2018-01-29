@@ -1,11 +1,11 @@
 class PostDepartment < ApplicationRecord
   belongs_to :post
   belongs_to :department
-  belongs_to :worker
+  has_many :workers
 
   validates :post, presence: true, uniqueness: {
-    scope: [:department, :worker],
+    scope: [:department],
     message: 'with these relations already exists'}
   validates :department, presence: true
-  validates :worker, presence: true
+  # validates :worker, presence: true
 end
