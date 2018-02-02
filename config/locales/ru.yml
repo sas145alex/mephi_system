@@ -54,6 +54,8 @@ ru:
           success: Редактирование отдела прошло успешно!
         destroy:
           success: Удаление отдела прошло успешно!
+
+
   views:
     general:
       links:
@@ -98,6 +100,10 @@ ru:
         new:
           title: Новая должность
       departments:
+        select:
+          post: Выберите должность
+        links:
+          add_post: Добавить должность
         edit:
           title: Редактирование отдела
         show:
@@ -106,6 +112,8 @@ ru:
           title: Список отделов
         new:
           title: Новый отдел
+
+
   activerecord:
     models:
       post: Должность

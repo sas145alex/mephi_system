@@ -25,5 +25,10 @@
 //= require cocoon
 //= require select2
 
+
+// app's scripts
 //= require main
+//= require nested_forms
 //= require sidebar
+
+//= require entities/departments

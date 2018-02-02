@@ -1,4 +1,7 @@
 = form_for @department do |f|
+  .actions
+    = f.submit t('views.general.links.submit'), class: 'btn btn-primary mb-3'
+
   = error_messages_for @department
 
   .row
@@ -28,6 +31,13 @@
       = error_messages_for_attr(f.object, :parent_id)
 
 
-
-  .actions
-    = f.submit t('views.general.links.submit'), class: 'btn btn-primary pull-right'
+  %div.form-wrapper#wrapper-for-nested-posts
+    %div.add-form.mb-3
+      = link_to_add_association t('views.entites.departments.links.add_post'),
+      f, :post_departments,
+      class: 'btn btn-info',
+      data:{ association_insertion_node: '#posts',
+      association_insertion_method: :prepend  }
+    #posts.nested-assotiations
+      = f.fields_for :post_departments do |post_department|
+        = render 'post_department_fields', f: post_department

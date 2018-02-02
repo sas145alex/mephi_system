@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :post_departments
-  resources :departments
+  resources :departments do
+  end
+  post 'fill_existing_post_form' => 'departments#fill_existing_post_form'
   resources :posts
   resources :workers
   resources :people

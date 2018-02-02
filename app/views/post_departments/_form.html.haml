@@ -20,9 +20,9 @@
     -# attribute = worker
     -# field_type = text_field
     .field.form-group.col-sm-6
-      = f.label PostDepartment.human_attribute_name(:worker)
-      = f.text_field :worker, class: 'form-control'
-      = error_messages_for_attr(f.object, :worker)
+      = f.label PostDepartment.human_attribute_name(:workers)
+      = f.text_field :workers, class: 'form-control'
+      = error_messages_for_attr(f.object, :workers)
 
   .actions
     = f.submit t('views.general.links.submit'), class: 'btn btn-primary pull-right'

@@ -1,0 +1,50 @@
+.nested-fields.nested-departments-post-departments
+  %h3 Eta nested for post
+  .row
+    -# attribute = post
+    -# field_type = text_field
+    .field.form-group.col-sm-5
+      = f.label PostDepartment.human_attribute_name(:post_id)
+      = f.collection_select(:post_id, Post.all,
+      :id, :name,
+      {include_blank: false, prompt: I18n.t('views.entites.departments.select.post')},
+      {multiple: false, class: 'select2 select2-selector select-post-id'})
+      = error_messages_for_attr(f.object, :post_id)
+
+    -# -# attribute = worker
+    -# -# field_type = text_field
+    -# .field.form-group.col-sm-6
+    -#   = f.label PostDepartment.human_attribute_name(:workers)
+    -#   = f.text_field :workers, class: 'form-control'
+    -#   = error_messages_for_attr(f.object, :workers)
+
+    -# -# attribute = id
+    -# -# field_type = hidden_field
+    -# .field.form-group.col-sm-6
+    -#   = f.label PostDepartment.human_attribute_name(:id)
+    -#   = f.number_field :id, class: 'form-control'
+    -#   = error_messages_for_attr(f.object, :id)
+
+    = f.fields_for :post, f.object.post || f.object.build_post do |fpost|
+      .col-sm-4.post-name
+        = fpost.label :name
+        = fpost.text_field :name, class: 'form-control'
+        = error_messages_for_attr(fpost.object, :name)
+      .col-sm-3.post-code
+        = fpost.label :code
+        = fpost.text_field :code, class: 'form-control'
+        = error_messages_for_attr(fpost.object, :code)
+      .post-id
+        -# = fpost.label :id
+        = fpost.hidden_field :id, class: 'form-control'
+      .col-sm-12.links.mt-2
+        = link_to_remove_association (fa_icon :remove) + t('views.general.links.delete'),
+        f, class: 'btn btn-warning pull-right'
+        - if params[:action] == 'edit'
+          - if !f.object.new_record?
+            = link_to (fa_icon :ban) + t('views.general.links.destroy'),
+            f.object.post, method: :delete,
+            class: 'destroy-post btn btn-danger',
+            :data => { :confirm => t('views.general.questions.sure') },
+            remote: true
+  %hr

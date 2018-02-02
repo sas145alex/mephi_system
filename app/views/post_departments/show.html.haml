@@ -12,9 +12,9 @@
   %dd.col-sm-10
     = @post_department.department
   %dt.col-sm-2
-    %b= PostDepartment.human_attribute_name(:worker)
+    %b= PostDepartment.human_attribute_name(:workers)
   %dd.col-sm-10
-    = @post_department.worker
+    = @post_department.workers
 
 %td= link_to_edit(edit_post_department_path(@post_department))
 \|

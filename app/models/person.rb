@@ -12,4 +12,9 @@ class Person < ApplicationRecord
     full_name = full_name ++ " #{second_name}" if self.second_name
     return full_name
   end
+
+  def self.attributes_names
+    arr = self.new.attribute_names - ['created_at', 'updated_at']
+    arr.map(&:to_sym)
+  end
 end
