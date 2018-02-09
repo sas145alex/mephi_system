@@ -21,6 +21,10 @@
 
 
 ru:
+  application:
+    name: 'МИФИ'
+
+
   controllers:
     workers:
       actions:

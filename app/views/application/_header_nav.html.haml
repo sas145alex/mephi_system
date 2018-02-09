@@ -1,7 +1,10 @@
 %nav.navbar.navbar-expand-md.navbar-inverse.fixed-top.navbar-top
   %button.navbar-toggler.navbar-toggler-right.hidden-lg-up.collapsed{"aria-controls" => "navbarsExampleDefault", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarsExampleDefault", "data-toggle" => "collapse", :type => "button"}
     %span.navbar-toggler-icon
-  %a.navbar-brand{:href => "#"} Dashboard
+  -# %a.navbar-brand{:href => "#"} Dashboard
+  = link_to(root_path, {class: 'navbar-brand'}) do
+    = fa_icon('home')
+    = t('application.name')
 
   #navbarsExampleDefault.navbar-collapse.collapse{"aria-expanded" => "false", :style => ""}
     %ul.navbar-nav.mr-auto

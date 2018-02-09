@@ -1,34 +1,44 @@
+// /*  general colors */
+// $main-color-dark:            #06397d
+// $main-color-contrast:        #facb66
+// $main-color:                 #82add6
+// $main-color-light:           #e4e9f4
+// $main-color-contrast-dark:   #911f1e
+
 /*  general colors */
-$main-color-dark:            #06397d
-$main-color-contrast:        #facb66
-$main-color:                 #82add6
-$main-color-light:           #e4e9f4
-$main-color-contrast-dark:   #911f1e
+$main-color:                 #486693
+$main-color-light:           #6985AE
+$main-color-dark:            #2D4C79
+$main-color-contrast:        #42758D
+$main-color-contrast-dark:   #295C74
+
 
 /* additional colors */
 $color-white: #ffffff
-$color-lighten-main-dark: lighten($main-color-dark, 10%)
-$color-more-lighten-main-dark: lighten($color-lighten-main-dark, 15%)
+$color-ivory: #fffff0
+$color-midnight-blue: #191970
 
 /* block's variables */
-$body-bg: $main-color-light
+$body-bg: #f2f2f2
 
-$header-color: $main-color-dark
+$header-color-bg: $main-color-dark
 $header-height: 60px
 
-$sidebar-color: $color-lighten-main-dark
-$sidebar-spacer-color: $color-more-lighten-main-dark
+$sidebar-color-bg: $main-color
+$sidebar-spacer-color-bg: lighten($main-color, 7%)
 $sidebar-toggler-size: 40px
 $sidebar-toggler-top-offset: 3px
 $sidebar-item-height: 35px
 
 /* element's colors */
-$multiple-select2-background-highlighted: $color-lighten-main-dark
-$link-color:                 $main-color-contrast
-$link-hover-color:           $main-color-contrast-dark
+$multiple-select2-background-highlighted: $main-color-dark
+$multiple-select2-background-selected: $main-color-light
+$link-color:                 $color-ivory
+$link-hover-color:           $color-midnight-blue
 
 
 /* other variables */
+$transition-color-duration: 0.07s
 //calc(100% - $header-height) не работает!
 $wrapper-height: calc(100% - (#{$header-height}))
 // $wrapper-height: calc(100% - (100px))
