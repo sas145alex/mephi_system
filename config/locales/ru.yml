@@ -105,9 +105,14 @@ ru:
           title: Новая должность
       departments:
         select:
+          parent: Выберете родительский отдел
           post: Выберите должность
+          posts: Выберите должности
         links:
           add_post: Добавить должность
+        form_blocks:
+          department_forms: Формы отдела
+          post_forms: Формы должностей
         edit:
           title: Редактирование отдела
         show:
@@ -148,6 +153,7 @@ ru:
         parent_id: Родительский отдел
         parent: Родительский отдел
         children: Дочерние отделы
+        post_ids: Должности в отделе
     errors:
       messages:
         workers:

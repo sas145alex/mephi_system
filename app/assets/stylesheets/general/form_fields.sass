@@ -1,6 +1,6 @@
 .field.form-group
   input
-    min-height: 40px
+    min-height: $select2-min-height
   /* fix width for date-input with errors */
   .input-group.date.datepicker
     input
@@ -17,3 +17,14 @@
 span.select2-results
   li.select2-results__option[aria-selected='true']
     background: $multiple-select2-background-selected
+
+span.select2-selection.select2-selection--single
+  min-height: $select2-min-height
+  // span.select2-selection__rendered
+
+li.select2-selection__choice
+  &:hover
+    background-color: $main-color !important
+    color: $color-ivory !important
+    transition: color $transition-color-duration
+    transition: background-color $transition-color-duration

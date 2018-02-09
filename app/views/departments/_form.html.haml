@@ -1,8 +1,15 @@
+
+
 = form_for @department do |f|
   .actions
-    = f.submit t('views.general.links.submit'), class: 'btn btn-primary mb-3'
+    = f.submit t('views.general.links.submit'),
+    class: 'btn btn-primary mb-3'
 
   = error_messages_for @department
+
+  %hr
+  %h3= t('views.entites.departments.form_blocks.department_forms')
+
 
   .row
 
@@ -16,28 +23,39 @@
     -# attribute = description
     -# field_type = text_area
     .field.form-group.col-sm-6
-      = f.label Department.human_attribute_name(:description)
-      = f.text_area :description, class: 'form-control'
-      = error_messages_for_attr(f.object, :description)
-
-    -# attribute = description
-    -# field_type = text_area
-    .field.form-group.col-sm-6
       = f.label Department.human_attribute_name(:parent_id)
       = f.select(:parent_id,
       options_for_select(Department.all_except(f.object).map{|d| [d.name, d.id]},
       f.object.parent_id),
-      {include_blank: true}, {class: 'form-control'} )
+      {include_blank: false, prompt: I18n.t('views.entites.departments.select.parent')},
+      {class: 'form-control select2'} )
       = error_messages_for_attr(f.object, :parent_id)
+
+    -# attribute = description
+    -# field_type = text_area
+    .field.form-group.col-sm-12
+      = f.label Department.human_attribute_name(:description)
+      = f.text_area :description, class: 'form-control'
+      = error_messages_for_attr(f.object, :description)
+
+    .field.form-group.col-sm-12.form-group-with-select2
+      %hr
+      %h3= t('views.entites.departments.form_blocks.post_forms')
+      = f.label Department.human_attribute_name(:post_ids)
+      = f.collection_select(:post_ids,
+      Post.all, :id, :name,
+      {include_blank: false, prompt: I18n.t('views.entites.departments.select.posts')},
+      {multiple: true, class: 'select2 select2-selector'})
+      = error_messages_for_attr(f.object, :post_ids)
 
 
   %div.form-wrapper#wrapper-for-nested-posts
     %div.add-form.mb-3
-      = link_to_add_association t('views.entites.departments.links.add_post'),
+      = link_to_add_association t('views.entites.departments.links.add_post') + ' [cocoon]',
       f, :post_departments,
       class: 'btn btn-info',
       data:{ association_insertion_node: '#posts',
-      association_insertion_method: :prepend  }
+      association_insertion_method: :prepend }
     #posts.nested-assotiations
       = f.fields_for :post_departments do |post_department|
         = render 'post_department_fields', f: post_department
