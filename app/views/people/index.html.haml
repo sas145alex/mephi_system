@@ -1,3 +1,7 @@
+=breadcrumb_tag do
+  %li.breadcrumb-item.active
+    = Person.model_name.human(count: 'other')
+
 = link_to t('views.general.links.new'), new_person_path, class: 'btn btn-primary pull-right'
 
 %h1= t('views.entites.people.index.title')

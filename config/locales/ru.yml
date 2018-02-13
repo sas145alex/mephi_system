@@ -125,10 +125,18 @@ ru:
 
   activerecord:
     models:
-      post: Должность
-      person: Человек
-      worker: Работник
-      department: Отдел
+      post:
+        one: Должность
+        other: Должности
+      person:
+        one: Человек
+        other: Люди
+      worker:
+        one: Работник
+        other: Работники
+      department:
+        one: Отдел
+        other: Отделы
     attributes:
       person:
         first_name: Имя

@@ -9,10 +9,6 @@
   %body
     = render 'application/header_nav'
     = render 'flash_messages'
-    -if content_for? :breadcrumb
-      = yield :breadcrumb
-    -if content_for? :error_messages
-      = yield :error_messages
 
     #wrapper.container-fluid
       .row
@@ -28,6 +24,10 @@
           = render 'sidebar_content'
 
         %main{class: 'col-sm-9 offset-sm-3 col-lg-10 offset-lg-2 col-xs-12 offset-xs-0 pt-3'}
+          -if content_for? :breadcrumb
+            = yield :breadcrumb
+          -if content_for? :error_messages
+            = yield :error_messages
           = yield
 
 

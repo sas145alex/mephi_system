@@ -1,3 +1,9 @@
+=breadcrumb_tag do
+  %li.breadcrumb-item
+    = link_to Person.model_name.human(count: 'other'), people_path
+  %li.breadcrumb-item.active
+    = t('views.entites.people.new.title')
+
 %h1= t('views.entites.people.new.title')
 
 = render 'form'

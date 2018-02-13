@@ -1,3 +1,11 @@
+=breadcrumb_tag do
+  %li.breadcrumb-item
+    = link_to Department.model_name.human(count: 'other'), departments_path
+  %li.breadcrumb-item
+    = link_to "#{@department.id}", @department
+  %li.breadcrumb-item.active
+    = t('views.entites.departments.edit.title')
+
 %h1= t('views.entites.departments.edit.title')
 
 = render 'form'

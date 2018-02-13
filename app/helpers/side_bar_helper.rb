@@ -49,6 +49,13 @@ module SideBarHelper
           :action => :index,
           :class => ''
         },
+        # {
+        #   :name => 'my_tests',
+        #   :icon => 'bed',
+        #   :controller => :my_tests,
+        #   :action => :index,
+        #   :class => ''
+        # },
         {
           :name => 'post_departments',
           :icon => 'bed',
