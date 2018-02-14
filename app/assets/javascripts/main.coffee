@@ -16,7 +16,12 @@
   window.datepicker_activation_by_item($(document))
 
 @datepicker_activation_by_item = (item)->
-  item.find('.datepicker').datepicker({language: 'ru', format: 'dd.mm.yyyy'})
+  # item.find('.datepicker').datepicker({language: 'ru', format: 'dd.mm.yyyy'})
+  item.find('.datepicker').datepicker({
+    dateFormat: 'dd.mm.yy',
+    nextText: '',
+    prevText: ''
+    })
 
 @select2_activation_by_item = (item)->
   item.find('.select2').select2({theme: "bootstrap"})

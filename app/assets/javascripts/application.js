@@ -19,14 +19,20 @@
 // require moment
 // require bootstrap-datepicker
 
-//= require bootstrap-datepicker/core
-//= require bootstrap-datepicker/locales/bootstrap-datepicker.ru.js
+// require bootstrap-datepicker/core
+// require bootstrap-datepicker/locales/bootstrap-datepicker.ru.js
+
+// require jquery-ui
+// require jquery-ui/core
+//= require jquery-ui/widgets/datepicker
+//= require jquery-ui/i18n/datepicker-ru
+
 
 //= require cocoon
 //= require select2
 
 
-// app's scripts
+/////////////////////// app's scripts
 //= require main
 //= require nested_forms
 //= require sidebar

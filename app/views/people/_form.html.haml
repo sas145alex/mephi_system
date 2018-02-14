@@ -28,12 +28,14 @@
     -# field_type = date_select
     .field.form-group.col-sm-6
       = f.label :birthday
-      .input-group.date.datepicker
+      .input-group.date
         = f.text_field(:birthday,
         value: lnil(f.object.birthday),
-        class: 'form-control')
-        %span.input-group-addon
-          = fa_icon(:calendar)
+        class: 'form-control datepicker',
+        aria: {describedby: 'date-addon-birthday'})
+        .input-group-append
+          %span.input-group-text#date-addon-birthday
+            = fa_icon(:calendar)
       = error_messages_for_attr(f.object, :birthday)
 
     -# attribute = passport

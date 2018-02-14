@@ -1,0 +1,24 @@
+.ui-widget.ui-datepicker
+  background-color: $jquery-datepicker-background
+  border-radius: 3px
+  box-shadow: inset 0 0 10px 0px #bdc0c6
+  .ui-widget-header.ui-datepicker-header
+    background-color: $color-white
+    border-radius: 5px
+    .ui-corner-all
+      background-color: #4c6977
+    .ui-datepicker-prev, .ui-datepicker-next
+      text-align: center
+      cursor: pointer
+      overflow: hidden
+  table.ui-datepicker-calendar
+    tbody td
+      a
+        border-radius: 4px
+        background-color: darken($jquery-datepicker-background, 10%)
+        color: $jquery-datepicker-tbody-link-color
+        &:hover
+          color: $jquery-datepicker-tbody-link-hover-color
+          background-color: lighten($jquery-datepicker-background, 15%)
+          transition: color $transition-color-duration
+          transition: background-color $transition-color-duration

@@ -41,7 +41,8 @@ gem 'popper_js'
 gem 'jquery-rails'
 gem 'momentjs-rails'
 gem 'bootstrap'
-gem 'bootstrap-datepicker-rails'
+# gem 'bootstrap-datepicker-rails'
+gem 'jquery-ui-rails'
 gem 'haml'
 gem "haml-rails"
 
