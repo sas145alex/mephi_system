@@ -1,0 +1,18 @@
+=breadcrumb_tag do
+  %li.breadcrumb-item
+    = link_to Task.model_name.human(count: 'other'), tasks_path
+  %li.breadcrumb-item
+    = link_to "#{@task.id}", @task
+  %li.breadcrumb-item.active
+    = t('views.entites.tasks.new.title')
+
+%h1= t('views.entites.tasks.edit.title')
+
+= render 'form'
+
+%div.mt-3
+  = link_to_show(@task)
+  \|
+  = link_to (fa_icon 'reply' ,text: t('views.general.links.back') ), tasks_path, class: 'btn btn-secondary'
+  \|
+  = link_to_destroy(@task)

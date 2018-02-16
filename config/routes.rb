@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :tasks
+  resources :directions
   resources :post_departments
   resources :departments do
   end

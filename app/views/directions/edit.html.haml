@@ -1,0 +1,18 @@
+=breadcrumb_tag do
+  %li.breadcrumb-item
+    = link_to Direction.model_name.human(count: 'other'), directions_path
+  %li.breadcrumb-item
+    = link_to "#{@direction.id}", @direction
+  %li.breadcrumb-item.active
+    = t('views.entites.directions.new.title')
+
+%h1= t('views.entites.directions.edit.title')
+
+= render 'form'
+
+%div.mt-3
+  = link_to_show(@direction)
+  \|
+  = link_to (fa_icon 'reply' ,text: t('views.general.links.back') ), directions_path, class: 'btn btn-secondary'
+  \|
+  = link_to_destroy(@direction)

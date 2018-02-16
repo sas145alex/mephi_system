@@ -1,0 +1,28 @@
+= form_for @task do |f|
+  = error_messages_for @task
+
+  .row
+
+    -# attribute = description
+    -# field_type = text_area
+    .field.form-group.col-sm-6
+      = f.label Task.human_attribute_name(:description)
+      = f.text_area :description, class: 'form-control'
+      = error_messages_for_attr(f.object, :description)
+
+    -# attribute = status
+    -# field_type = number_field
+    .field.form-group.col-sm-6
+      = f.label Task.human_attribute_name(:status)
+      = f.number_field :status, class: 'form-control'
+      = error_messages_for_attr(f.object, :status)
+
+    -# attribute = direction
+    -# field_type = text_field
+    .field.form-group.col-sm-6
+      = f.label Task.human_attribute_name(:direction)
+      = f.text_field :direction, class: 'form-control'
+      = error_messages_for_attr(f.object, :direction)
+
+  .actions
+    = f.submit t('views.general.links.submit'), class: 'btn btn-primary pull-right'

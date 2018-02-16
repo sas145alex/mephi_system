@@ -57,6 +57,20 @@ module SideBarHelper
         #   :class => ''
         # },
         {
+          :name => 'tasks',
+          :icon => 'bed',
+          :controller => :tasks,
+          :action => :index,
+          :class => ''
+        },
+        {
+          :name => 'directions',
+          :icon => 'bed',
+          :controller => :directions,
+          :action => :index,
+          :class => ''
+        },
+        {
           :name => 'post_departments',
           :icon => 'bed',
           :controller => :post_departments,

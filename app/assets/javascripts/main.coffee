@@ -19,12 +19,16 @@
   # item.find('.datepicker').datepicker({language: 'ru', format: 'dd.mm.yyyy'})
   item.find('.datepicker').datepicker({
     dateFormat: 'dd.mm.yy',
+    changeMonth: true,
+    changeYear: true,
     nextText: '',
-    prevText: ''
+    prevText: '',
+    yearRange:'-90:+0'
     })
 
 @select2_activation_by_item = (item)->
   item.find('.select2').select2({theme: "bootstrap"})
+  item.find('.ui-datepicker-month').select2({theme: "bootstrap"})
   $('span.select2-container').removeAttr('style')
 
 

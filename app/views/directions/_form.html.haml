@@ -1,0 +1,63 @@
+= form_for @direction do |f|
+  = error_messages_for @direction
+
+  .row
+
+    -# attribute = name
+    -# field_type = text_field
+    .field.form-group.col-sm-6
+      = f.label Direction.human_attribute_name(:name)
+      = f.text_field :name, class: 'form-control'
+      = error_messages_for_attr(f.object, :name)
+
+    -# attribute = status
+    -# field_type = number_field
+    .field.form-group.col-sm-6
+      = f.label Direction.human_attribute_name(:status)
+      = f.number_field :status, class: 'form-control'
+      = error_messages_for_attr(f.object, :status)
+
+    -# attribute = receive_date
+    -# field_type = date_select
+    .field.form-group.col-sm-6
+      = f.label Direction.human_attribute_name(:receive_date)
+      .input-group.date
+        = f.text_field(:receive_date,
+        value: lnil(f.object.receive_date),
+        class: 'form-control datepicker',
+        aria: {describedby: 'date-addon-receive_date'})
+        .input-group-append
+          %span.input-group-text#date-addon-receive_date
+            = fa_icon(:calendar)
+      = error_messages_for_attr(f.object, :receive_date)
+
+    -# attribute = nominated_date_end
+    -# field_type = date_select
+    .field.form-group.col-sm-6
+      = f.label Direction.human_attribute_name(:nominated_date_end)
+      .input-group.date
+        = f.text_field(:nominated_date_end,
+        value: lnil(f.object.nominated_date_end),
+        class: 'form-control datepicker',
+        aria: {describedby: 'date-addon-nominated_date_end'})
+        .input-group-append
+          %span.input-group-text#date-addon-nominated_date_end
+            = fa_icon(:calendar)
+      = error_messages_for_attr(f.object, :nominated_date_end)
+
+    -# attribute = finish_date
+    -# field_type = date_select
+    .field.form-group.col-sm-6
+      = f.label Direction.human_attribute_name(:finish_date)
+      .input-group.date
+        = f.text_field(:finish_date,
+        value: lnil(f.object.finish_date),
+        class: 'form-control datepicker',
+        aria: {describedby: 'date-addon-finish_date'})
+        .input-group-append
+          %span.input-group-text#date-addon-finish_date
+            = fa_icon(:calendar)
+      = error_messages_for_attr(f.object, :finish_date)
+
+  .actions
+    = f.submit t('views.general.links.submit'), class: 'btn btn-primary pull-right'

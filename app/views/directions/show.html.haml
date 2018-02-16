@@ -1,0 +1,37 @@
+=breadcrumb_tag do
+  %li.breadcrumb-item
+    = link_to Direction.model_name.human(count: 'other'), directions_path
+  %li.breadcrumb-item.active
+    = @direction.id
+
+%h1= t('views.entites.directions.edit.title')
+
+%p#notice= notice
+
+%dl.row
+  %dt.col-sm-2
+    %b= Direction.human_attribute_name(:name)
+  %dd.col-sm-10
+    = @direction.name
+  %dt.col-sm-2
+    %b= Direction.human_attribute_name(:status)
+  %dd.col-sm-10
+    = @direction.status
+  %dt.col-sm-2
+    %b= Direction.human_attribute_name(:receive_date)
+  %dd.col-sm-10
+    = @direction.receive_date
+  %dt.col-sm-2
+    %b= Direction.human_attribute_name(:nominated_date_end)
+  %dd.col-sm-10
+    = @direction.nominated_date_end
+  %dt.col-sm-2
+    %b= Direction.human_attribute_name(:finish_date)
+  %dd.col-sm-10
+    = @direction.finish_date
+
+%td= link_to_edit(edit_direction_path(@direction))
+\|
+= link_to (fa_icon 'reply' ,text: t('views.general.links.back') ), directions_path, class: 'btn btn-secondary'
+\|
+= link_to_destroy(@direction)

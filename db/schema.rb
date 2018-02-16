@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180129105511) do
+ActiveRecord::Schema.define(version: 20180216144409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 20180129105511) do
     t.datetime "updated_at", null: false
     t.string "ancestry"
     t.index ["ancestry"], name: "index_departments_on_ancestry"
+  end
+
+  create_table "directions", force: :cascade do |t|
+    t.string "name"
+    t.integer "status"
+    t.date "receive_date"
+    t.date "nominated_date_end"
+    t.date "finish_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "people", force: :cascade do |t|
@@ -51,6 +61,15 @@ ActiveRecord::Schema.define(version: 20180129105511) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tasks", force: :cascade do |t|
+    t.text "description"
+    t.integer "status"
+    t.bigint "direction_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["direction_id"], name: "index_tasks_on_direction_id"
+  end
+
   create_table "workers", force: :cascade do |t|
     t.date "contract_start_date", null: false
     t.date "contract_end_date", null: false
@@ -65,5 +84,6 @@ ActiveRecord::Schema.define(version: 20180129105511) do
 
   add_foreign_key "post_departments", "departments"
   add_foreign_key "post_departments", "posts"
+  add_foreign_key "tasks", "directions"
   add_foreign_key "workers", "people"
 end

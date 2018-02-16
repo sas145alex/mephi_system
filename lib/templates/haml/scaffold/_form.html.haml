@@ -12,7 +12,7 @@
       .input-group.date
         = f.text_field(:<%= attribute.name %>,
         value: lnil(f.object.<%= attribute.name %>),
-        class: 'form-control, datepicker',
+        class: 'form-control datepicker',
         aria: {describedby: 'date-addon-<%= attribute.name %>'})
         .input-group-append
           %span.input-group-text#date-addon-<%= attribute.name %>

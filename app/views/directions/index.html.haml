@@ -1,0 +1,32 @@
+=breadcrumb_tag do
+  %li.breadcrumb-item.active
+    = Direction.model_name.human(count: 'other')
+
+= link_to t('views.general.links.new'), new_direction_path, class: 'btn btn-primary pull-right'
+
+%h1= t('views.entites.directions.index.title')
+%table.table.table-hover.table-striped
+  %thead
+    %tr
+      %th= Direction.human_attribute_name(:name)
+      %th= Direction.human_attribute_name(:status)
+      %th= Direction.human_attribute_name(:receive_date)
+      %th= Direction.human_attribute_name(:nominated_date_end)
+      %th= Direction.human_attribute_name(:finish_date)
+      %th
+      %th
+      %th
+
+  %tbody
+    - @directions.each do |direction|
+      %tr
+        %td= direction.name
+        %td= direction.status
+        %td= direction.receive_date
+        %td= direction.nominated_date_end
+        %td= direction.finish_date
+        %td= link_to_show(direction)
+        %td= link_to_edit(edit_direction_path(direction))
+        %td= link_to_destroy(direction)
+
+%br

@@ -1,0 +1,29 @@
+=breadcrumb_tag do
+  %li.breadcrumb-item
+    = link_to Task.model_name.human(count: 'other'), tasks_path
+  %li.breadcrumb-item.active
+    = @task.id
+
+%h1= t('views.entites.tasks.edit.title')
+
+%p#notice= notice
+
+%dl.row
+  %dt.col-sm-2
+    %b= Task.human_attribute_name(:description)
+  %dd.col-sm-10
+    = @task.description
+  %dt.col-sm-2
+    %b= Task.human_attribute_name(:status)
+  %dd.col-sm-10
+    = @task.status
+  %dt.col-sm-2
+    %b= Task.human_attribute_name(:direction)
+  %dd.col-sm-10
+    = @task.direction
+
+%td= link_to_edit(edit_task_path(@task))
+\|
+= link_to (fa_icon 'reply' ,text: t('views.general.links.back') ), tasks_path, class: 'btn btn-secondary'
+\|
+= link_to_destroy(@task)
