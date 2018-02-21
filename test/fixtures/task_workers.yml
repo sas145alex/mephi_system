@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  status: 1
+  receive_date: 2018-02-21 17:29:40
+  finish_date: 2018-02-21 17:29:40
+  answer: 1
+  comment: MyText
+  worker: one
+  task: one
+
+two:
+  status: 1
+  receive_date: 2018-02-21 17:29:40
+  finish_date: 2018-02-21 17:29:40
+  answer: 1
+  comment: MyText
+  worker: two
+  task: two

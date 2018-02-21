@@ -1,0 +1,11 @@
+=breadcrumb_tag do
+  %li.breadcrumb-item
+    = link_to TaskWorker.model_name.human(count: 'other'), task_workers_path
+  %li.breadcrumb-item.active
+    = t('views.entites.task_workers.new.title')
+
+%h1= t('views.entites.task_workers.new.title')
+
+= render 'form'
+
+= link_to (fa_icon 'reply' ,text: t('views.general.links.back') ), task_workers_path, class: 'btn btn-secondary'

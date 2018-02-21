@@ -1,0 +1,45 @@
+=breadcrumb_tag do
+  %li.breadcrumb-item
+    = link_to TaskWorker.model_name.human(count: 'other'), task_workers_path
+  %li.breadcrumb-item.active
+    = @task_worker.id
+
+%h1= t('views.entites.task_workers.edit.title')
+
+%p#notice= notice
+
+%dl.row
+  %dt.col-sm-2
+    %b= TaskWorker.human_attribute_name(:status)
+  %dd.col-sm-10
+    = @task_worker.status
+  %dt.col-sm-2
+    %b= TaskWorker.human_attribute_name(:receive_date)
+  %dd.col-sm-10
+    = @task_worker.receive_date
+  %dt.col-sm-2
+    %b= TaskWorker.human_attribute_name(:finish_date)
+  %dd.col-sm-10
+    = @task_worker.finish_date
+  %dt.col-sm-2
+    %b= TaskWorker.human_attribute_name(:answer)
+  %dd.col-sm-10
+    = @task_worker.answer
+  %dt.col-sm-2
+    %b= TaskWorker.human_attribute_name(:comment)
+  %dd.col-sm-10
+    = @task_worker.comment
+  %dt.col-sm-2
+    %b= TaskWorker.human_attribute_name(:worker)
+  %dd.col-sm-10
+    = @task_worker.worker
+  %dt.col-sm-2
+    %b= TaskWorker.human_attribute_name(:task)
+  %dd.col-sm-10
+    = @task_worker.task
+
+%td= link_to_edit(edit_task_worker_path(@task_worker))
+\|
+= link_to (fa_icon 'reply' ,text: t('views.general.links.back') ), task_workers_path, class: 'btn btn-secondary'
+\|
+= link_to_destroy(@task_worker)

@@ -3,7 +3,7 @@ module SideBarHelper
     result = []
 
     result << {
-      :name => 'Люди',
+      :name => 'Админ',
       :icon => 'users',
       :children => [
         {:name => 'people',
@@ -17,9 +17,10 @@ module SideBarHelper
          :icon => 'user-plus'}
       ]
     }
+
     result << {
       :name => 'Scaffolds',
-      :icon => 'plus',
+      :icon => 'bug',
       :children => [
         {
           :name => 'people',
@@ -49,6 +50,13 @@ module SideBarHelper
           :action => :index,
           :class => ''
         },
+        {
+          :name => 'post_departments',
+          :icon => 'bed',
+          :controller => :post_departments,
+          :action => :index,
+          :class => ''
+        },
         # {
         #   :name => 'my_tests',
         #   :icon => 'bed',
@@ -57,26 +65,27 @@ module SideBarHelper
         #   :class => ''
         # },
         {
+          :name => 'task_workers',
+          :icon => 'bomb',
+          :controller => :task_workers,
+          :action => :index,
+          :class => ''
+        },
+        {
           :name => 'tasks',
-          :icon => 'bed',
+          :icon => 'bomb',
           :controller => :tasks,
           :action => :index,
           :class => ''
         },
         {
           :name => 'directions',
-          :icon => 'bed',
+          :icon => 'bomb',
           :controller => :directions,
           :action => :index,
           :class => ''
         },
-        {
-          :name => 'post_departments',
-          :icon => 'bed',
-          :controller => :post_departments,
-          :action => :index,
-          :class => ''
-        }
+
       ]
     }
 

@@ -23,7 +23,7 @@
     changeYear: true,
     nextText: '',
     prevText: '',
-    yearRange:'-90:+0'
+    yearRange:'-90:+3'
     })
 
 @select2_activation_by_item = (item)->

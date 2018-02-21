@@ -58,6 +58,30 @@ ru:
           success: Редактирование отдела прошло успешно!
         destroy:
           success: Удаление отдела прошло успешно!
+    tasks:
+      actions:
+        create:
+          success: Создание задания прошло успешно!
+        update:
+          success: Редактирование задания прошло успешно!
+        destroy:
+          success: Удаление задания прошло успешно!
+    directions:
+      actions:
+        create:
+          success: Создание распоряжения прошло успешно!
+        update:
+          success: Редактирование распоряжения прошло успешно!
+        destroy:
+          success: Удаление распоряжения прошло успешно!
+    task_workers:
+      actions:
+        create:
+          success: Создание делегации прошло успешно!
+        update:
+          success: Редактирование делегации прошло успешно!
+        destroy:
+          success: Удаление делегации прошло успешно!
 
 
   views:
@@ -103,6 +127,7 @@ ru:
           title: Список должностей
         new:
           title: Новая должность
+
       departments:
         select:
           parent: Выберете родительский отдел
@@ -122,6 +147,36 @@ ru:
         new:
           title: Новый отдел
 
+      tasks:
+        edit:
+          title: Редактирование задания
+        show:
+          title: Сведения о задании
+        index:
+          title: Список заданий
+        new:
+          title: Новое задание
+
+      task_workers:
+        edit:
+          title: Редактирование делегации
+        show:
+          title: Сведения о делегации
+        index:
+          title: Список делегаций
+        new:
+          title: Новая делегация
+
+      directions:
+        edit:
+          title: Редактирование распоряжения
+        show:
+          title: Сведения о распоряжении
+        index:
+          title: Список распоряжений
+        new:
+          title: Новое распоряжение
+
 
   activerecord:
     models:
@@ -137,6 +192,15 @@ ru:
       department:
         one: Отдел
         other: Отделы
+      task:
+        one: Задание
+        other: Задания
+      task_worker:
+        one: Делегация
+        other: Делегации
+      direction:
+        one: Распоряжение
+        other: Распоряжения
     attributes:
       person:
         first_name: Имя
@@ -144,17 +208,20 @@ ru:
         last_name: Фамилия
         birthday: Дата рождения
         passport: Пасспорт
+
       worker:
         contract_start_date: Дата начала контракта
         contract_end_date: Дата окончания контракта
         status: Статус
         person: Человек
+
       post:
         code: Код
         name: Название
         department_ids: Отделы
         departments: Отделы
         workers: Работники
+
       department:
         name: Название
         description: Описание
@@ -162,6 +229,32 @@ ru:
         parent: Родительский отдел
         children: Дочерние отделы
         post_ids: Должности в отделе
+
+      task:
+        description: Описание
+        status: Состояние
+        direction: Распоряжение
+        direction_id: Распоряжение
+
+      task_worker:
+        status: Состояние
+        answer: Ответ
+        comment: Комментарий
+        receive_date: Дата получения
+        finish_date: Дата окончания
+        worker: Работник
+        worker_id: Работник
+        task: Задание
+        task_id: Задание
+
+      direction:
+        name: Название
+        status: Состояние
+        receive_date: Дата получения
+        nominated_date_end: Намеченная дата сдачи
+        finish_date: Дата окончания
+
+
     errors:
       messages:
         workers:

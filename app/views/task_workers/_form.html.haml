@@ -1,0 +1,56 @@
+= form_for @task_worker do |f|
+  = error_messages_for @task_worker
+
+  .row
+
+    -# attribute = status
+    -# field_type = number_field
+    .field.form-group.col-sm-6
+      = f.label TaskWorker.human_attribute_name(:status)
+      = f.number_field :status, class: 'form-control'
+      = error_messages_for_attr(f.object, :status)
+
+    -# attribute = receive_date
+    -# field_type = datetime_select
+    .field.form-group.col-sm-6
+      = f.label TaskWorker.human_attribute_name(:receive_date)
+      = f.datetime_select :receive_date, class: 'form-control'
+      = error_messages_for_attr(f.object, :receive_date)
+
+    -# attribute = finish_date
+    -# field_type = datetime_select
+    .field.form-group.col-sm-6
+      = f.label TaskWorker.human_attribute_name(:finish_date)
+      = f.datetime_select :finish_date, class: 'form-control'
+      = error_messages_for_attr(f.object, :finish_date)
+
+    -# attribute = answer
+    -# field_type = number_field
+    .field.form-group.col-sm-6
+      = f.label TaskWorker.human_attribute_name(:answer)
+      = f.number_field :answer, class: 'form-control'
+      = error_messages_for_attr(f.object, :answer)
+
+    -# attribute = comment
+    -# field_type = text_area
+    .field.form-group.col-sm-6
+      = f.label TaskWorker.human_attribute_name(:comment)
+      = f.text_area :comment, class: 'form-control'
+      = error_messages_for_attr(f.object, :comment)
+
+    -# attribute = worker
+    -# field_type = text_field
+    .field.form-group.col-sm-6
+      = f.label TaskWorker.human_attribute_name(:worker)
+      = f.text_field :worker, class: 'form-control'
+      = error_messages_for_attr(f.object, :worker)
+
+    -# attribute = task
+    -# field_type = text_field
+    .field.form-group.col-sm-6
+      = f.label TaskWorker.human_attribute_name(:task)
+      = f.text_field :task, class: 'form-control'
+      = error_messages_for_attr(f.object, :task)
+
+  .actions
+    = f.submit t('views.general.links.submit'), class: 'btn btn-primary pull-right'

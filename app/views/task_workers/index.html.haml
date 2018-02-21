@@ -1,0 +1,36 @@
+=breadcrumb_tag do
+  %li.breadcrumb-item.active
+    = TaskWorker.model_name.human(count: 'other')
+
+= link_to t('views.general.links.new'), new_task_worker_path, class: 'btn btn-primary pull-right'
+
+%h1= t('views.entites.task_workers.index.title')
+%table.table.table-hover.table-striped
+  %thead
+    %tr
+      %th= TaskWorker.human_attribute_name(:status)
+      %th= TaskWorker.human_attribute_name(:receive_date)
+      %th= TaskWorker.human_attribute_name(:finish_date)
+      %th= TaskWorker.human_attribute_name(:answer)
+      %th= TaskWorker.human_attribute_name(:comment)
+      %th= TaskWorker.human_attribute_name(:worker)
+      %th= TaskWorker.human_attribute_name(:task)
+      %th
+      %th
+      %th
+
+  %tbody
+    - @task_workers.each do |task_worker|
+      %tr
+        %td= task_worker.status
+        %td= task_worker.receive_date
+        %td= task_worker.finish_date
+        %td= task_worker.answer
+        %td= task_worker.comment
+        %td= task_worker.worker
+        %td= task_worker.task
+        %td= link_to_show(task_worker)
+        %td= link_to_edit(edit_task_worker_path(task_worker))
+        %td= link_to_destroy(task_worker)
+
+%br

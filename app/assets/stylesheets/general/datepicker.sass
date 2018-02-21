@@ -3,7 +3,8 @@
 .ui-widget.ui-datepicker
   background-color: $jquery-datepicker-background
   border-radius: 3px
-  box-shadow: inset 0 0 10px 0px #bdc0c6
+  // box-shadow: inset 0 0 10px 0px #bdc0c6
+  box-shadow: inset 0 0 3px 0px $sidebar-spacer-color-bg
   .ui-widget-header.ui-datepicker-header
     display: flex
     background-color: $color-white
@@ -12,7 +13,8 @@
       position: relative
     a
       border-radius: 50%
-      background-color: darken($jquery-datepicker-background, 10%)
+      // background-color: darken($jquery-datepicker-background, 10%)
+      background-color: $jquery-datepicker-tbody-link-background-color
       margin-left: 2px
       margin-right: 2px
       top: 0px
@@ -20,7 +22,7 @@
       left: 0px
       right: 0px
       &:hover
-        background-color: lighten($jquery-datepicker-background, 1%)
+        background-color: $jquery-datepicker-tbody-link-background-hover-color
         transition: background-color $transition-color-duration
       span
         display: inline-block
@@ -47,10 +49,10 @@
     tbody td
       a
         border-radius: 4px
-        background-color: darken($jquery-datepicker-background, 10%)
+        background-color: $jquery-datepicker-tbody-link-background-color
         color: $jquery-datepicker-tbody-link-color
         &:hover
           color: $jquery-datepicker-tbody-link-hover-color
-          background-color: lighten($jquery-datepicker-background, 10%)
+          background-color: $jquery-datepicker-tbody-link-background-hover-color
           transition: color $transition-color-duration
           transition: background-color $transition-color-duration

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :task_workers
   resources :tasks
   resources :directions
   resources :post_departments
