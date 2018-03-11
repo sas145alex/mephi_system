@@ -1,0 +1,18 @@
+=breadcrumb_tag do
+  %li.breadcrumb-item
+    = link_to Document.model_name.human(count: 'other'), documents_path
+  %li.breadcrumb-item
+    = link_to "#{@document.id}", @document
+  %li.breadcrumb-item.active
+    = t('views.entites.documents.new.title')
+
+%h1= t('views.entites.documents.edit.title')
+
+= render 'form'
+
+%div.mt-3
+  = link_to_show(@document)
+  \|
+  = link_to (fa_icon 'reply' ,text: t('views.general.links.back') ), documents_path, class: 'btn btn-secondary'
+  \|
+  = link_to_destroy(@document)

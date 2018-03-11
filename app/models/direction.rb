@@ -1,6 +1,8 @@
 class Direction < ApplicationRecord
   has_one :task
 
+  has_many :documents
+
   validates :name, presence: true
   validates :status, presence: true, numericality:
     {greater_than_or_equal_to: 0}

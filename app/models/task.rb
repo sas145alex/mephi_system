@@ -3,6 +3,8 @@ class Task < ApplicationRecord
   # has_ancestry :orphan_strategy => :adopt
   belongs_to :direction
 
+  has_many :documents
+
   # callbacks
   before_validation :set_direction_on_node
 

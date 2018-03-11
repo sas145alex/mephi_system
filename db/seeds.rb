@@ -33,3 +33,15 @@ dep5 = Department.create(name: 'dep name5', description: 'dep description5', par
 dep1.posts << post1 << post2
 dep2.posts << post2 << post3
 dep3.posts << post3 << post4
+
+direct1 = Direction.create(name: 'dir1', status: 1, receive_date: Date.new, nominated_date_end: Date.new, finish_date: Date.new)
+direct2 = Direction.create(name: 'dir2', status: 1, receive_date: Date.new, nominated_date_end: Date.new, finish_date: Date.new)
+direct3 = Direction.create(name: 'dir3', status: 1, receive_date: Date.new, nominated_date_end: Date.new, finish_date: Date.new)
+direct4 = Direction.create(name: 'dir4', status: 1, receive_date: Date.new, nominated_date_end: Date.new, finish_date: Date.new)
+direct5 = Direction.create(name: 'dir5', status: 1, receive_date: Date.new, nominated_date_end: Date.new, finish_date: Date.new)
+
+task1 = Task.create(description: 'desc1', status: 1, direction: direct1)
+task2 = Task.create(description: 'desc2', status: 1, direction: direct2)
+task3 = Task.create(description: 'desc3', status: 1, direction: direct3)
+task4 = Task.create(description: 'desc4', status: 1, direction: direct4)
+task5 = Task.create(description: 'desc5', status: 1, direction: direct5)

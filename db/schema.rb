@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180221142940) do
+ActiveRecord::Schema.define(version: 20180311200109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,17 @@ ActiveRecord::Schema.define(version: 20180221142940) do
     t.date "finish_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "documents", force: :cascade do |t|
+    t.string "name"
+    t.integer "type"
+    t.bigint "task_id"
+    t.bigint "direction_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["direction_id"], name: "index_documents_on_direction_id"
+    t.index ["task_id"], name: "index_documents_on_task_id"
   end
 
   create_table "people", force: :cascade do |t|
@@ -65,7 +76,7 @@ ActiveRecord::Schema.define(version: 20180221142940) do
     t.integer "status", null: false
     t.integer "answer", null: false
     t.text "comment", null: false
-    t.datetime "receive_date"
+    t.datetime "receive_date", null: false
     t.datetime "finish_date"
     t.bigint "worker_id"
     t.bigint "task_id"
@@ -98,6 +109,8 @@ ActiveRecord::Schema.define(version: 20180221142940) do
     t.index ["post_department_id"], name: "index_workers_on_post_department_id"
   end
 
+  add_foreign_key "documents", "directions"
+  add_foreign_key "documents", "tasks"
   add_foreign_key "post_departments", "departments"
   add_foreign_key "post_departments", "posts"
   add_foreign_key "task_workers", "tasks"

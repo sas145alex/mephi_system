@@ -1,0 +1,30 @@
+=breadcrumb_tag do
+  %li.breadcrumb-item.active
+    = Document.model_name.human(count: 'other')
+
+= link_to t('views.general.links.new'), new_document_path, class: 'btn btn-primary pull-right'
+
+%h1= t('views.entites.documents.index.title')
+%table.table.table-hover.table-striped
+  %thead
+    %tr
+      %th= Document.human_attribute_name(:name)
+      %th= Document.human_attribute_name(:type)
+      %th= Document.human_attribute_name(:task)
+      %th= Document.human_attribute_name(:direction)
+      %th
+      %th
+      %th
+
+  %tbody
+    - @documents.each do |document|
+      %tr
+        %td= document.name
+        %td= document.type
+        %td= document.task
+        %td= document.direction
+        %td= link_to_show(document)
+        %td= link_to_edit(edit_document_path(document))
+        %td= link_to_destroy(document)
+
+%br

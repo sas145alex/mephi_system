@@ -1,0 +1,35 @@
+= form_for @document do |f|
+  = error_messages_for @document
+
+  .row
+
+    -# attribute = name
+    -# field_type = text_field
+    .field.form-group.col-sm-6
+      = f.label Document.human_attribute_name(:name)
+      = f.text_field :name, class: 'form-control'
+      = error_messages_for_attr(f.object, :name)
+
+    -# attribute = type
+    -# field_type = number_field
+    .field.form-group.col-sm-6
+      = f.label Document.human_attribute_name(:type)
+      = f.number_field :type, class: 'form-control'
+      = error_messages_for_attr(f.object, :type)
+
+    -# attribute = task
+    -# field_type = text_field
+    .field.form-group.col-sm-6
+      = f.label Document.human_attribute_name(:task)
+      = f.text_field :task, class: 'form-control'
+      = error_messages_for_attr(f.object, :task)
+
+    -# attribute = direction
+    -# field_type = text_field
+    .field.form-group.col-sm-6
+      = f.label Document.human_attribute_name(:direction)
+      = f.text_field :direction, class: 'form-control'
+      = error_messages_for_attr(f.object, :direction)
+
+  .actions
+    = f.submit t('views.general.links.submit'), class: 'btn btn-primary pull-right'
