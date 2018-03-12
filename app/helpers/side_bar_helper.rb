@@ -65,6 +65,13 @@ module SideBarHelper
         #   :class => ''
         # },
         {
+          :name => 'documents',
+          :icon => 'bomb',
+          :controller => :documents,
+          :action => :index,
+          :class => ''
+        },
+        {
           :name => 'task_workers',
           :icon => 'bomb',
           :controller => :task_workers,

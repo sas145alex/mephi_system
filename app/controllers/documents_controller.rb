@@ -1,5 +1,7 @@
 class DocumentsController < ApplicationController
-  before_action :set_document, only: [:show, :edit, :update, :destroy]
+  before_action :set_document, only: [
+    :show, :edit, :update, :destroy, :download_file
+  ]
 
   # GET /documents
   def index
@@ -45,6 +47,20 @@ class DocumentsController < ApplicationController
     redirect_to documents_url, notice: t('controllers.documents.actions.destroy.success')
   end
 
+
+
+  def download_file
+    # attachments[@document.content_file_name]=File.read("#{Rails.root}/public/assets/#{@image.content.url}")
+    file = @document.doc
+    send_file(
+      # "#{Rails.root}/public" ++ file.url,
+      file.path,
+      filename: @document.doc_file_name,
+      type: file.content_type,
+      disposition: "attachment"
+    )
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_document
@@ -53,6 +69,6 @@ class DocumentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def document_params
-      params.require(:document).permit(:name, :type, :task_id, :direction_id)
+      params.require(:document).permit(:name, :type, :task_id, :direction_id, :doc)
     end
 end

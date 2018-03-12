@@ -82,6 +82,14 @@ ru:
           success: Редактирование делегации прошло успешно!
         destroy:
           success: Удаление делегации прошло успешно!
+    documents:
+      actions:
+        create:
+          success: Создание документа прошло успешно!
+        update:
+          success: Редактирование документа прошло успешно!
+        destroy:
+          success: Удаление документа прошло успешно!
 
 
   views:
@@ -177,6 +185,16 @@ ru:
         new:
           title: Новое распоряжение
 
+      documents:
+        edit:
+          title: Редактирование документа
+        show:
+          title: Сведения о документе
+        index:
+          title: Список документов
+        new:
+          title: Новое документ
+
 
   activerecord:
     models:
@@ -201,6 +219,9 @@ ru:
       direction:
         one: Распоряжение
         other: Распоряжения
+      document:
+        one: Документ
+        other: Документы
     attributes:
       person:
         first_name: Имя
@@ -253,6 +274,13 @@ ru:
         receive_date: Дата получения
         nominated_date_end: Намеченная дата сдачи
         finish_date: Дата окончания
+
+      document:
+        name: Название
+        type: Тип
+        task_id: Задание
+        direction_id: Распоряжение
+        doc: Файл
 
 
     errors:

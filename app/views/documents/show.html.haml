@@ -10,6 +10,10 @@
 
 %dl.row
   %dt.col-sm-2
+    %b= Document.human_attribute_name(:doc)
+  %dd.col-sm-10
+    = link_to_download_file(@document)
+  %dt.col-sm-2
     %b= Document.human_attribute_name(:name)
   %dd.col-sm-10
     = @document.name

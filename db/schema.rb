@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180311200109) do
+ActiveRecord::Schema.define(version: 20180312174640) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,10 @@ ActiveRecord::Schema.define(version: 20180311200109) do
     t.bigint "direction_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "doc_file_name"
+    t.string "doc_content_type"
+    t.integer "doc_file_size"
+    t.datetime "doc_updated_at"
     t.index ["direction_id"], name: "index_documents_on_direction_id"
     t.index ["task_id"], name: "index_documents_on_task_id"
   end

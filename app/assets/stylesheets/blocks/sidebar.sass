@@ -18,18 +18,23 @@
 		height: $sidebar-toggler-size + (2 * $sidebar-toggler-top-offset)
 
 	/* sidebar elements */
+	a
+		color: $color-ivory
+		transition: color $transition-color-duration
+		&:hover
+			color: $color-midnight-blue
 	ul
 		margin: 4px
 		li
 			font-size: 15pt
 			a
-				transition: color $transition-color-duration
 				box-sizing: border-box
 				padding: 5px
 				display: block
 				min-height: $sidebar-item-height
 				text-align: left
 				text-decoration: none
+
 
 			/* lists with childrens */
 			li.subitem
@@ -63,6 +68,10 @@
 	left: 0px
 	top: $header-height + $sidebar-toggler-top-offset
 	z-index: 1100
+	color: $color-ivory !important
+	transition: color $transition-color-duration
+	&:hover
+		color: $color-midnight-blue !important
 
 
 
@@ -80,6 +89,7 @@
 		border-radius: 50% 0% 0% 50%
 		right: 0px
 		bottom: $sidebar-toggler-top-offset
+
 //
 // // Small devices (landscape phones, less than 768px)
 // @media (max-width: 767.99px)

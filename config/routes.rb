@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :documents
+  resources :documents do
+    member do
+      get :download_file
+    end
+  end
   resources :task_workers
   resources :tasks
   resources :directions
