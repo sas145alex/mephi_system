@@ -10,7 +10,7 @@
     %tr
       %th= Direction.human_attribute_name(:name)
       %th= Direction.human_attribute_name(:status)
-      %th= Direction.human_attribute_name(:receive_date)
+      -# %th= Direction.human_attribute_name(:receive_date)
       %th= Direction.human_attribute_name(:nominated_date_end)
       %th= Direction.human_attribute_name(:finish_date)
       %th
@@ -22,7 +22,7 @@
       %tr
         %td= direction.name
         %td= direction.status
-        %td= direction.receive_date
+        -# %td= direction.receive_date
         %td= direction.nominated_date_end
         %td= direction.finish_date
         %td= link_to_show(direction)

@@ -4,7 +4,7 @@
   %li.breadcrumb-item.active
     = @document.id
 
-%h1= t('views.entites.documents.edit.title')
+%h1= t('views.entites.documents.show.title')
 
 %p#notice= notice
 
@@ -18,9 +18,9 @@
   %dd.col-sm-9
     = @document.name
   %dt.col-sm-3
-    %b= Document.human_attribute_name(:type)
+    %b= Document.human_attribute_name(:doc_type)
   %dd.col-sm-9
-    = @document.type
+    = @document.doc_type
   %dt.col-sm-3
     %b= Document.human_attribute_name(:task)
   %dd.col-sm-9
@@ -29,6 +29,10 @@
     %b= Document.human_attribute_name(:direction)
   %dd.col-sm-9
     = @document.direction
+  %dt.col-sm-3
+    %b= Document.human_attribute_name(:description)
+  %dd.col-sm-9
+    = @document.description
 
 %td= link_to_edit(edit_document_path(@document))
 \|

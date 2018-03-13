@@ -76,10 +76,19 @@ class Document < ApplicationRecord
    # do_not_validate_attachment_file_type :doc
 
 
-  validates :name, presence: true
+  # validates :name, presence: true
 
   # after_validation :at_least_one_link_must_exist
   before_save :at_least_one_link_must_exist
+  # before_save :copy_file_name_to_object_attribute_if_name_empty
+
+  private
+
+  def copy_file_name_to_object_attribute_if_name_empty
+    if name.blank?
+      name = doc_file_name
+    end
+  end
 
   def at_least_one_link_must_exist
     if task.nil? && direction.nil?
@@ -89,4 +98,8 @@ class Document < ApplicationRecord
     end
   end
 
+  def self.attributes_names
+    arr = self.new.attribute_names - ['created_at', 'updated_at']
+    arr.map(&:to_sym)
+  end
 end

@@ -1,0 +1,44 @@
+.nested-fields.nested-directions-documents
+  %hr
+  .row
+
+    -# attribute = name
+    -# field_type = text_field
+    .field.form-group.col-sm-8
+      = f.label Document.human_attribute_name(:name)
+      = f.text_field :name, class: 'form-control'
+      = error_messages_for_attr(f.object, :name)
+
+    -# attribute = doc
+    -# field_type = file_field
+    - if params[:action] == 'new'
+      .field.form-group.col-sm-6
+        = f.label Document.human_attribute_name(:doc)
+        = f.file_field :doc, class: 'form-control-file'
+        = error_messages_for_attr(f.object, :doc)
+
+    -# attribute = description
+    -# field_type = file_field
+    .field.form-group.col-sm-12
+      = f.label Document.human_attribute_name(:description)
+      = f.text_area :description, class: 'form-control-file'
+      = error_messages_for_attr(f.object, :description)
+
+
+    -# attribute = task
+    -# field_type = text_field
+    -# .field.form-group.col-sm-6
+    -#   = f.label Document.human_attribute_name(:task)
+    -#   = f.text_field :task, class: 'form-control'
+    -#   = error_messages_for_attr(f.object, :task)
+
+    -# attribute = direction
+    -# field_type = text_field
+    -# .field.form-group.col-sm-6
+    -#   = f.label Document.human_attribute_name(:direction)
+    -#   = f.text_field :direction, class: 'form-control'
+    -#   = error_messages_for_attr(f.object, :direction)
+
+    .col-sm-12.links.mt-2
+      = link_to_remove_association (fa_icon :remove) + t('views.general.links.delete'),
+      f, class: 'btn btn-warning pull-right'

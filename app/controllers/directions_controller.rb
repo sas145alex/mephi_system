@@ -53,6 +53,10 @@ class DirectionsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def direction_params
-      params.require(:direction).permit(:name, :status, :receive_date, :nominated_date_end, :finish_date)
+      params.require(:direction).permit(Direction.attributes_names + [:_destroy],
+          documents_attributes: [
+            Document.attributes_names + [:_destroy, :doc]
+          ]
+        )
     end
 end

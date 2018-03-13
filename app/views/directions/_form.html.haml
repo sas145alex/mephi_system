@@ -1,5 +1,12 @@
 = form_for @direction do |f|
+  .actions
+    = f.submit t('views.general.links.submit'),
+    class: 'btn btn-primary mb-3'
+
   = error_messages_for @direction
+
+  %hr
+  %h3= t('views.entites.directions.form_blocks.direction_forms')
 
   .row
 
@@ -59,5 +66,17 @@
             = fa_icon(:calendar)
       = error_messages_for_attr(f.object, :finish_date)
 
-  .actions
-    = f.submit t('views.general.links.submit'), class: 'btn btn-primary pull-right'
+
+  %hr
+  %h3= t('views.entites.directions.form_blocks.document_forms')
+
+  %div.form-wrapper#wrapper-for-nested-documents
+    %div.add-form.mb-3
+      = link_to_add_association t('views.entites.directions.links.add_document') + ' [cocoon]',
+      f, :documents,
+      class: 'btn btn-info',
+      data:{ association_insertion_node: '#nested-documents',
+      association_insertion_method: :prepend }
+    #nested-documents.nested-assotiations
+      = f.fields_for :documents do |document|
+        = render 'document_fields', f: document

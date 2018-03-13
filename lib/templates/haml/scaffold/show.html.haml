@@ -4,15 +4,15 @@
   %li.breadcrumb-item.active
     = @<%= singular_table_name %>.id
 
-%h1= t('views.entites.<%= table_name %>.edit.title')
+%h1= t('views.entites.<%= table_name %>.show.title')
 
 %p#notice= notice
 
 %dl.row.show-entity
 <% for attribute in attributes -%>
-  %dt.col-sm-3
+  %dt.col-sm-4
     %b= <%= plural_table_name.classify %>.human_attribute_name(:<%= attribute.name %>)
-  %dd.col-sm-9
+  %dd.col-sm-8
     = @<%= singular_table_name %>.<%= attribute.name %>
 <% end -%>
 

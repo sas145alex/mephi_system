@@ -10,7 +10,6 @@
     %tr
       %th= Document.human_attribute_name(:doc)
       %th= Document.human_attribute_name(:name)
-      %th= Document.human_attribute_name(:type)
       %th= Document.human_attribute_name(:task)
       %th= Document.human_attribute_name(:direction)
       %th
@@ -22,7 +21,6 @@
       %tr
         %td= document.doc_file_name
         %td= document.name
-        %td= document.type
         %td= document.task
         %td= document.direction
         %td= link_to_show(document)

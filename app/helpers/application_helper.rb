@@ -20,4 +20,9 @@ module ApplicationHelper
     render 'application/breadcrumb', block: capture(&block)
   end
 
+
+  def link_to_download_file(object_with_file)
+    render partial: 'link_to_download_file',
+      object: object_with_file, as: 'document'
+  end
 end

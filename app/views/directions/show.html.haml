@@ -4,31 +4,56 @@
   %li.breadcrumb-item.active
     = @direction.id
 
-%h1= t('views.entites.directions.edit.title')
+%h1= t('views.entites.directions.show.title')
 
 %p#notice= notice
 
-%dl.row
-  %dt.col-sm-2
+%h3= t('views.entites.directions.form_blocks.direction_forms')
+%hr
+
+%dl.row.show-entity
+  %dt.col-sm-4
     %b= Direction.human_attribute_name(:name)
-  %dd.col-sm-10
+  %dd.col-sm-8
     = @direction.name
-  %dt.col-sm-2
+  %dt.col-sm-4
     %b= Direction.human_attribute_name(:status)
-  %dd.col-sm-10
+  %dd.col-sm-8
     = @direction.status
-  %dt.col-sm-2
+  %dt.col-sm-4
     %b= Direction.human_attribute_name(:receive_date)
-  %dd.col-sm-10
+  %dd.col-sm-8
     = @direction.receive_date
-  %dt.col-sm-2
+  %dt.col-sm-4
     %b= Direction.human_attribute_name(:nominated_date_end)
-  %dd.col-sm-10
+  %dd.col-sm-8
     = @direction.nominated_date_end
-  %dt.col-sm-2
+  %dt.col-sm-4
     %b= Direction.human_attribute_name(:finish_date)
-  %dd.col-sm-10
+  %dd.col-sm-8
     = @direction.finish_date
+
+%h3= t('views.entites.directions.form_blocks.document_forms')
+%hr
+
+- @direction.documents.each do |document|
+  %dl.row.show-entity
+    %dt.col-sm-4
+      %b= Document.human_attribute_name(:doc)
+    %dd.col-sm-8
+      = link_to_download_file(document)
+    %dt.col-sm-4
+      %b= Document.human_attribute_name(:name)
+    %dd.col-sm-8
+      = document.name
+    %dt.col-sm-4
+      %b= Document.human_attribute_name(:doc_type)
+    %dd.col-sm-8
+      = document.doc_type
+    %dt.col-sm-4
+      %b= Document.human_attribute_name(:description)
+    %dd.col-sm-8
+      = document.description
 
 %td= link_to_edit(edit_direction_path(@direction))
 \|

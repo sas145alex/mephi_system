@@ -99,6 +99,7 @@ ru:
         show: Показать
         new: Добавить
         destroy: Удалить
+        delete: Уничтожить
         edit: Изменить
         submit: Подтвердить
       questions:
@@ -176,6 +177,11 @@ ru:
           title: Новая делегация
 
       directions:
+        links:
+          add_document: Добавить документ
+        form_blocks:
+          direction_forms: Формы распоряжения
+          document_forms: Формы документов
         edit:
           title: Редактирование распоряжения
         show:
@@ -273,14 +279,15 @@ ru:
         status: Состояние
         receive_date: Дата получения
         nominated_date_end: Намеченная дата сдачи
-        finish_date: Дата окончания
+        finish_date: Дата завершения
 
       document:
         name: Название
-        type: Тип
+        doc_type: Тип
         task_id: Задание
         direction_id: Распоряжение
         doc: Файл
+        description: Описание
 
 
     errors:
