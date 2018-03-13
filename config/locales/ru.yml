@@ -193,7 +193,7 @@ ru:
         index:
           title: Список документов
         new:
-          title: Новое документ
+          title: Новый документ
 
 
   activerecord:

@@ -8,11 +8,11 @@
 
 %p#notice= notice
 
-%dl.row
+%dl.row.show-entity
 <% for attribute in attributes -%>
-  %dt.col-sm-2
+  %dt.col-sm-3
     %b= <%= plural_table_name.classify %>.human_attribute_name(:<%= attribute.name %>)
-  %dd.col-sm-10
+  %dd.col-sm-9
     = @<%= singular_table_name %>.<%= attribute.name %>
 <% end -%>
 

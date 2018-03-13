@@ -8,26 +8,26 @@
 
 %p#notice= notice
 
-%dl.row
-  %dt.col-sm-2
+%dl.row.show-entity
+  %dt.col-sm-3
     %b= Document.human_attribute_name(:doc)
-  %dd.col-sm-10
+  %dd.col-sm-9
     = link_to_download_file(@document)
-  %dt.col-sm-2
+  %dt.col-sm-3
     %b= Document.human_attribute_name(:name)
-  %dd.col-sm-10
+  %dd.col-sm-9
     = @document.name
-  %dt.col-sm-2
+  %dt.col-sm-3
     %b= Document.human_attribute_name(:type)
-  %dd.col-sm-10
+  %dd.col-sm-9
     = @document.type
-  %dt.col-sm-2
+  %dt.col-sm-3
     %b= Document.human_attribute_name(:task)
-  %dd.col-sm-10
+  %dd.col-sm-9
     = @document.task
-  %dt.col-sm-2
+  %dt.col-sm-3
     %b= Document.human_attribute_name(:direction)
-  %dd.col-sm-10
+  %dd.col-sm-9
     = @document.direction
 
 %td= link_to_edit(edit_document_path(@document))

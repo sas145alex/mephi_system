@@ -4,20 +4,19 @@
   .row
 
 
-
-    -# attribute = doc
-    -# field_type = file_field
-    .field.form-group.col-sm-6
-      = f.label Document.human_attribute_name(:doc)
-      = f.file_field :doc, class: 'form-control'
-      = error_messages_for_attr(f.object, :doc)
-
     -# attribute = name
     -# field_type = text_field
     .field.form-group.col-sm-6
       = f.label Document.human_attribute_name(:name)
       = f.text_field :name, class: 'form-control'
       = error_messages_for_attr(f.object, :name)
+
+    -# attribute = doc
+    -# field_type = file_field
+    .field.form-group.col-sm-6
+      = f.label Document.human_attribute_name(:doc)
+      = f.file_field :doc, class: 'form-control-file'
+      = error_messages_for_attr(f.object, :doc)
 
     -# attribute = type
     -# field_type = number_field

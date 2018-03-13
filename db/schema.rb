@@ -35,16 +35,16 @@ ActiveRecord::Schema.define(version: 20180312174640) do
   end
 
   create_table "documents", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.integer "type"
     t.bigint "task_id"
     t.bigint "direction_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "doc_file_name"
-    t.string "doc_content_type"
-    t.integer "doc_file_size"
-    t.datetime "doc_updated_at"
+    t.string "doc_file_name", null: false
+    t.string "doc_content_type", null: false
+    t.integer "doc_file_size", null: false
+    t.datetime "doc_updated_at", null: false
     t.index ["direction_id"], name: "index_documents_on_direction_id"
     t.index ["task_id"], name: "index_documents_on_task_id"
   end

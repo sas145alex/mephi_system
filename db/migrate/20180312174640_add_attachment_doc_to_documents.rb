@@ -1,7 +1,7 @@
 class AddAttachmentDocToDocuments < ActiveRecord::Migration[5.1]
   def self.up
     change_table :documents do |t|
-      t.attachment :doc
+      t.attachment :doc, null: false
     end
   end
 

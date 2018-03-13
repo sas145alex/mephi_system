@@ -1,4 +1,7 @@
 class Document < ApplicationRecord
+  belongs_to :task, optional: true
+  belongs_to :direction, optional: true
+
   has_attached_file :doc
   validates_attachment :doc, presence: true,
     content_type: {content_type: [
@@ -70,10 +73,10 @@ class Document < ApplicationRecord
       'application/mswrite'
       ]},
      size: { in: 0..30.megabytes }
-   do_not_validate_attachment_file_type :doc
+   # do_not_validate_attachment_file_type :doc
 
-  belongs_to :task, optional: true
-  belongs_to :direction, optional: true
+
+  validates :name, presence: true
 
   # after_validation :at_least_one_link_must_exist
   before_save :at_least_one_link_must_exist
