@@ -7,7 +7,8 @@
 
 # $('#sidebar').toggleClass('active')
 
-
+# подпись всех ajax-запросов
+$.ajaxSetup headers: 'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
 
 @select2_activation = ->
   window.select2_activation_by_item($(document))
@@ -37,8 +38,10 @@ app_ready_f = ->
   # loader_f()
   window.datepicker_activation()
   window.select2_activation()
+  window.activate_tasks_scripts()
+  # tasks_scripts()
 
 
-$(document).ready app_ready_f
+# $(document).ready app_ready_f
 # $(document).on 'page:load', app_ready_f
-$(document).on 'turbolinks:load', app_ready_f
+$(document).on 'turbolinks:load ready', app_ready_f

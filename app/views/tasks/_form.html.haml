@@ -1,6 +1,9 @@
 = form_for @task do |f|
   = error_messages_for @task
 
+  .actions
+    = f.submit t('views.general.links.submit'), class: 'btn btn-primary pull-right'
+
   .row
 
     -# attribute = description
@@ -24,5 +27,13 @@
       = f.text_field :direction, class: 'form-control'
       = error_messages_for_attr(f.object, :direction)
 
-  .actions
-    = f.submit t('views.general.links.submit'), class: 'btn btn-primary pull-right'
+  -# %div.form-wrapper#wrapper-for-nested-tasks
+  -#   %div.add-form.mb-3
+  -#     = link_to_add_association t('views.entites.tasks.links.add_task') + ' [cocoon]',
+  -#     f, :tasks,
+  -#     class: 'btn btn-info',
+  -#     data:{ association_insertion_node: '#tasks',
+  -#     association_insertion_method: :prepend }
+  -#   #tasks.nested-assotiations
+  -#     = f.fields_for :tasks do |task|
+  -#       = render 'task_fields', f: task

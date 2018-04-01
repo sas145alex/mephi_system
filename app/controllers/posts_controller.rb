@@ -58,7 +58,7 @@ class PostsController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def post_params
       params.require(:post).permit(
-        :code, :name, department_ids: []
+        :code, :name, :manager, department_ids: []
          # post_departments_attributes:
          #  [:_destroy, :department_id, :id, department_attributes:
          #    Department.attributes_names.push(:_destroy)]

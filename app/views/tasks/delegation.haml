@@ -1,0 +1,16 @@
+=breadcrumb_tag do
+  %li.breadcrumb-item
+    = link_to Direction.model_name.human(count: 'other'), directions_path
+  %li.breadcrumb-item
+    = link_to "#{@task.root.direction.id}", @task.root.direction
+  %li.breadcrumb-item.active
+    = t('views.entites.tasks.delegation.title')
+
+
+%h1= t('views.entites.tasks.delegation.title')
+
+%p#notice= notice
+
+%hr
+
+= render 'one_task'

@@ -2,20 +2,20 @@
   %hr
   .row
 
-    -# attribute = name
-    -# field_type = text_field
-    .field.form-group.col-sm-8
-      = f.label Document.human_attribute_name(:name)
-      = f.text_field :name, class: 'form-control'
-      = error_messages_for_attr(f.object, :name)
-
     -# attribute = doc
     -# field_type = file_field
     - if params[:action] == 'new'
-      .field.form-group.col-sm-6
+      .field.form-group.col-sm-12.col-md-5
         = f.label Document.human_attribute_name(:doc)
         = f.file_field :doc, class: 'form-control-file'
         = error_messages_for_attr(f.object, :doc)
+
+    -# attribute = name
+    -# field_type = text_field
+    .field.form-group.col-sm-12.col-md-7
+      = f.label Document.human_attribute_name(:name)
+      = f.text_field :name, class: 'form-control'
+      = error_messages_for_attr(f.object, :name)
 
     -# attribute = description
     -# field_type = file_field

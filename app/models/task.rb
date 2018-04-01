@@ -5,8 +5,12 @@ class Task < ApplicationRecord
 
   has_many :documents
 
+  # accepts_nested_attributes_for :tasks,
+  #   reject_if: :all_blank, allow_destroy: true
+
   # callbacks
   before_validation :set_direction_on_node
+  before_validation :set_status_on_new_task
 
   # validations
   validates :description, presence: true
@@ -17,6 +21,12 @@ class Task < ApplicationRecord
   def set_direction_on_node
     if self.direction_id.nil? && !self.root?
       self.direction = self.root.direction
+    end
+  end
+
+  def set_status_on_new_task
+    if self.status.nil? && self.new_record?
+      self.status = 0
     end
   end
 end

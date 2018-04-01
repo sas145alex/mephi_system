@@ -72,11 +72,16 @@
 
   %div.form-wrapper#wrapper-for-nested-documents
     %div.add-form.mb-3
-      = link_to_add_association t('views.entites.directions.links.add_document') + ' [cocoon]',
+      = link_to_add_association t('views.entites.directions.links.add_document'),
       f, :documents,
       class: 'btn btn-info',
       data:{ association_insertion_node: '#nested-documents',
       association_insertion_method: :prepend }
+      -# = link_to_add_association t('views.entites.directions.links.add_document') + ' [cocoon]',
+      -# f, :documents,
+      -# class: 'btn btn-info',
+      -# data:{ association_insertion_node: '#nested-documents',
+      -# association_insertion_method: :prepend }
     #nested-documents.nested-assotiations
       = f.fields_for :documents do |document|
         = render 'document_fields', f: document

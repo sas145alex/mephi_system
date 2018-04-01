@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
+  # post '/build_worker_cards' => 'tasks#build_worker_cards'
   resources :documents do
     member do
       get :download_file
     end
   end
   resources :task_workers
-  resources :tasks
+  resources :tasks do
+    member do
+      get :delegation
+      post :delegation
+      post :build_worker_cards
+    end
+  end
   resources :directions
   resources :post_departments
   resources :departments do

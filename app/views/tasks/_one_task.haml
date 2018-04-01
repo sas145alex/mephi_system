@@ -1,0 +1,43 @@
+= form_for @task.children.build do |f|
+  = error_messages_for @task
+
+
+  .actions
+    = f.submit t('views.general.links.submit'), class: 'btn btn-primary'
+
+  %hr
+
+  .task-wrapper
+    .task-header.row
+      .task-fields.col-sm-9
+        -# attribute = description
+        -# field_type = text_area
+        .field.form-group
+          = f.label Task.human_attribute_name(:description)
+          = f.text_area :description, class: 'form-control'
+          = error_messages_for_attr(f.object, :description)
+
+        -#   -# attribute = ancestry
+        -#   -# field_type = hidden_field
+        .field.form-group
+          -# = f.label 'ancestry'
+          = f.hidden_field :ancestry, class: 'form-control'
+          = error_messages_for_attr(f.object, :ancestry)
+
+        -#   -# attribute = direction
+        -#   -# field_type = hidden_field
+        .field.form-group
+          -# = f.label 'direction'
+          = f.hidden_field :direction, class: 'form-control'
+          = error_messages_for_attr(f.object, :direction)
+
+      .documents-fields.col-sm-3
+        spisok documentov
+    .task-body.row
+      .workers.col-sm-9
+        rabotniki
+        = select_tag t('views.entites.tasks.delegation.select_department'),
+        options_for_select(Department.all.collect{|d| [d.name, d.id]}),
+        class: 'select2', id: 'department-select'
+      .receivers.col-sm-3
+        polychateli

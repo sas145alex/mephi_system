@@ -21,6 +21,13 @@
       = f.text_field :name, class: 'form-control'
       = error_messages_for_attr(f.object, :name)
 
+    -# attribute = manager
+    -# field_type = check_box
+    .field.form-group.col-sm-6
+      = f.label Post.human_attribute_name(:manager)
+      = f.check_box :manager, class: 'check-input'
+      = error_messages_for_attr(f.object, :manager)
+
     .field.form-group.col-sm-12.form-group-with-select2
       = f.label Post.human_attribute_name(:department_ids)
       = f.collection_select(:department_ids,

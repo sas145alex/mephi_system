@@ -3,7 +3,7 @@ class CreateTaskWorkers < ActiveRecord::Migration[5.1]
     create_table :task_workers do |t|
       t.integer :status, null: false, unsighed: true
       t.integer :answer, null: false, unsighed: true
-      t.text :comment, null: false
+      t.text :comment
       t.datetime :receive_date, null: false
       t.datetime :finish_date
       t.belongs_to :worker, foreign_key: true

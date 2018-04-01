@@ -1,5 +1,6 @@
 class DirectionsController < ApplicationController
-  before_action :set_direction, only: [:show, :edit, :update, :destroy]
+  before_action :set_root_task, only: [:initial_delegation]
+  before_action :set_direction, only: [:show, :edit, :update, :destroy, :initial_delegation]
 
   # GET /directions
   def index
@@ -22,6 +23,7 @@ class DirectionsController < ApplicationController
   # POST /directions
   def create
     @direction = Direction.new(direction_params)
+
 
     if @direction.save
       redirect_to @direction, notice: t('controllers.directions.actions.create.success')
@@ -51,8 +53,13 @@ class DirectionsController < ApplicationController
       @direction = Direction.find(params[:id])
     end
 
+    def set_root_task
+      @task = Direction.find(params[:id]).task
+    end
+
     # Only allow a trusted parameter "white list" through.
     def direction_params
+      # raise params
       params.require(:direction).permit(Direction.attributes_names + [:_destroy],
           documents_attributes: [
             Document.attributes_names + [:_destroy, :doc]

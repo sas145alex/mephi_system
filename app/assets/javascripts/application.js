@@ -38,3 +38,4 @@
 //= require sidebar
 
 //= require entities/departments
+//= require entities/tasks

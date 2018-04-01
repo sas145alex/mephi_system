@@ -19,32 +19,32 @@ module SideBarHelper
     }
 
     result << {
-      :name => 'Scaffolds',
+      :name => 'Сущности',
       :icon => 'bug',
       :children => [
         {
-          :name => 'people',
+          :name => 'Люди',
           :icon => 'bed',
           :controller => :people,
           :action => :index,
           :class => ''
         },
         {
-          :name => 'workers',
+          :name => 'Сотрудники',
           :icon => 'bed',
           :controller => :workers,
           :action => :index,
           :class => ''
         },
         {
-          :name => 'posts',
+          :name => 'Должности',
           :icon => 'bed',
           :controller => :posts,
           :action => :index,
           :class => ''
         },
         {
-          :name => 'departments',
+          :name => 'Отделы',
           :icon => 'bed',
           :controller => :departments,
           :action => :index,
@@ -65,7 +65,7 @@ module SideBarHelper
         #   :class => ''
         # },
         {
-          :name => 'documents',
+          :name => 'Вложения',
           :icon => 'bomb',
           :controller => :documents,
           :action => :index,
@@ -79,14 +79,14 @@ module SideBarHelper
           :class => ''
         },
         {
-          :name => 'tasks',
+          :name => 'Задания',
           :icon => 'bomb',
           :controller => :tasks,
           :action => :index,
           :class => ''
         },
         {
-          :name => 'directions',
+          :name => 'Распоряжение',
           :icon => 'bomb',
           :controller => :directions,
           :action => :index,

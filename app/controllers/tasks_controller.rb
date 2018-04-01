@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_task, only: [:show, :edit, :update, :destroy, :delegation]
 
   # GET /tasks
   def index
@@ -21,6 +21,7 @@ class TasksController < ApplicationController
 
   # POST /tasks
   def create
+    # raise params.inspect
     @task = Task.new(task_params)
 
     if @task.save
@@ -39,6 +40,24 @@ class TasksController < ApplicationController
     end
   end
 
+  def delegation
+
+  end
+
+  # path/put /tasks/1
+  # def put_delegation
+  #   raise params.inspect
+  # end
+
+  def build_worker_cards
+    # raise "ПАРАМЕТРЫ #{params.to_s}"
+    @department = Department.where(id: params[:department_id]).first
+    # @timestamp = params[:timestamp].to_i
+    respond_to do |format|
+      format.js
+    end
+  end
+
   # DELETE /tasks/1
   def destroy
     @task.destroy
@@ -53,6 +72,6 @@ class TasksController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def task_params
-      params.require(:task).permit(:description, :status, :direction_id)
+      params.require(:task).permit(:description, :status, :direction_id, :ancestry)
     end
 end

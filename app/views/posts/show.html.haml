@@ -17,6 +17,10 @@
     %b= Post.human_attribute_name(:name)
   %dd.col-sm-10
     = @post.name
+  %dt.col-sm-2
+    %b= Post.human_attribute_name(:manager)
+  %dd.col-sm-10
+    = @post.manager
 
 %td= link_to_edit(edit_post_path(@post))
 \|

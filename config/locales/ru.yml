@@ -136,7 +136,6 @@ ru:
           title: Список должностей
         new:
           title: Новая должность
-
       departments:
         select:
           parent: Выберете родительский отдел
@@ -155,8 +154,15 @@ ru:
           title: Список отделов
         new:
           title: Новый отдел
-
       tasks:
+        links:
+          add_task: Добавить задание
+          add_document: Добавить вложение
+        form_blocks:
+          document_forms: Вложения
+        delegation:
+          title: Распределение заданий
+          select_department: Выберете отдел
         edit:
           title: Редактирование задания
         show:
@@ -178,10 +184,12 @@ ru:
 
       directions:
         links:
-          add_document: Добавить документ
+          add_document: Добавить вложение
         form_blocks:
           direction_forms: Формы распоряжения
-          document_forms: Формы документов
+          document_forms: Вложения
+        initial_delegation:
+          title: Начальное распределение
         edit:
           title: Редактирование распоряжения
         show:

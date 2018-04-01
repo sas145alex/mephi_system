@@ -17,6 +17,7 @@ class Post < ApplicationRecord
 
   validates :code, presence: true, uniqueness: true
   validates :name, presence: true
+  # validates :manager, presence: true
   # validates :department_ids, presence: true
 
   # after_validation :must_be_in_relation_with_departments

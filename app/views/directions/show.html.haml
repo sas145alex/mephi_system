@@ -55,7 +55,36 @@
     %dd.col-sm-8
       = document.description
 
-%td= link_to_edit(edit_direction_path(@direction))
+%h3 workerzzzz
+%hr
+
+-# - @direction.post_departments.each do |post_department|
+-#   %dl.row.show-entity
+-#     %dt.col-sm-4
+-#       %b= Person.human_attribute_name(:first_name)
+-#     %dd.col-sm-8
+-#       = post_department.person.first_name
+-#     %dt.col-sm-4
+-#       %b= Person.human_attribute_name(:last_name)
+-#     %dd.col-sm-8
+-#       = post_department.person.last_name
+-#     %dt.col-sm-4
+-#       %b= Person.human_attribute_name(:second_name)
+-#     %dd.col-sm-8
+-#       = post_department.person.second_name
+-#     %dt.col-sm-4
+-#       %b= Department.human_attribute_name(:name)
+-#     %dd.col-sm-8
+-#       = post_department.department.name
+-#     %dt.col-sm-4
+-#       %b= Post.human_attribute_name(:name)
+-#     %dd.col-sm-8
+-#       = post_department.post.name
+
+%hr
+= link_to('delegation', delegation_task_path(@direction.task), class: 'btn btn-secondary')
+
+= link_to_edit(edit_direction_path(@direction))
 \|
 = link_to (fa_icon 'reply' ,text: t('views.general.links.back') ), directions_path, class: 'btn btn-secondary'
 \|
