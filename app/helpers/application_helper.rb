@@ -25,4 +25,12 @@ module ApplicationHelper
     render partial: 'link_to_download_file',
       object: object_with_file, as: 'document'
   end
+
+  def t_boolean(val)
+    if val
+      t('values.boolean.true')
+    else
+      t('values.boolean.false')
+    end
+  end
 end

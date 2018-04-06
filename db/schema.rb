@@ -79,9 +79,9 @@ ActiveRecord::Schema.define(version: 20180314090910) do
 
   create_table "task_workers", force: :cascade do |t|
     t.integer "status", null: false
-    t.integer "answer", null: false
+    t.integer "answer"
     t.text "comment"
-    t.datetime "receive_date", null: false
+    t.datetime "receive_date"
     t.datetime "finish_date"
     t.bigint "worker_id"
     t.bigint "task_id"

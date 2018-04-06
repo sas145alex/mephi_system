@@ -51,12 +51,18 @@ class TasksController < ApplicationController
 
   def build_worker_cards
     # raise "ПАРАМЕТРЫ #{params.to_s}"
-    @department = Department.where(id: params[:department_id]).first
-    # @timestamp = params[:timestamp].to_i
+    @workers_info = PostDepartment.joins(:department, :post)
+      .where(department: Department.find(params[:department_id]))
+      .joins(workers: :person)
+      .select('people.second_name', 'people.first_name',
+        'people.last_name', 'posts.name', 'posts.manager',
+        'workers.id as worker_id')
+
     respond_to do |format|
       format.js
     end
   end
+
 
   # DELETE /tasks/1
   def destroy
@@ -72,6 +78,6 @@ class TasksController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def task_params
-      params.require(:task).permit(:description, :status, :direction_id, :ancestry)
+      params.require(:task).permit(:description, :status, :direction_id, :ancestry, worker_ids: [])
     end
 end

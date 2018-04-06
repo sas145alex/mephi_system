@@ -4,6 +4,8 @@ class Task < ApplicationRecord
   belongs_to :direction
 
   has_many :documents
+  has_many :task_workers
+  has_many :workers, through: :task_workers
 
   # accepts_nested_attributes_for :tasks,
   #   reject_if: :all_blank, allow_destroy: true

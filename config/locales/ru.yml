@@ -21,8 +21,13 @@
 
 
 ru:
+  values:
+    boolean:
+      'false': Нет
+      'true': Да
   application:
     name: 'МИФИ'
+
 
 
   controllers:
@@ -162,7 +167,8 @@ ru:
           document_forms: Вложения
         delegation:
           title: Распределение заданий
-          select_department: Выберете отдел
+          select_department: Выберите отдел
+          show_only_managers: Показать только управляющих
         edit:
           title: Редактирование задания
         show:
@@ -171,7 +177,6 @@ ru:
           title: Список заданий
         new:
           title: Новое задание
-
       task_workers:
         edit:
           title: Редактирование делегации
@@ -181,7 +186,15 @@ ru:
           title: Список делегаций
         new:
           title: Новая делегация
-
+      post_departments:
+        edit:
+          title: Редактирование post_departments
+        show:
+          title: Сведения о post_departments
+        index:
+          title: Список post_departments
+        new:
+          title: Новая post_departments
       directions:
         links:
           add_document: Добавить вложение
@@ -219,8 +232,8 @@ ru:
         one: Человек
         other: Люди
       worker:
-        one: Работник
-        other: Работники
+        one: Сотрудник
+        other: Сотрудники
       department:
         one: Отдел
         other: Отделы
@@ -252,7 +265,8 @@ ru:
 
       post:
         code: Код
-        name: Название
+        name: Должность
+        manager: Управляющий
         department_ids: Отделы
         departments: Отделы
         workers: Работники
@@ -270,6 +284,7 @@ ru:
         status: Состояние
         direction: Распоряжение
         direction_id: Распоряжение
+        documents: Вложения
 
       task_worker:
         status: Состояние

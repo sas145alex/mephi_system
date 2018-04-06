@@ -1,0 +1,25 @@
+-# создание карточек работников при выборе отдела
+-# tasks#build_worker_cards
+
+%table.table.table-hover.table-responsive-lg#workers-result-table
+  %thead
+    %tr
+      %th= Worker.model_name.human
+      %th= Post.human_attribute_name(:name)
+      %th.manager
+        = Post.human_attribute_name(:manager)
+      %th.links
+
+  %tbody
+    - workers_info.each do |wi|
+      %tr{data: {manager: "#{wi.manager}"}}
+        %td= person_initials(wi.last_name, wi.first_name, wi.second_name)
+        %td= wi.name
+        %td.manager{data: {manager: "#{wi.manager}"}}
+          = t_boolean(wi.manager)
+        %td
+          .links
+            = link_to( (fa_icon "pencil",text: ""), worker_path(wi.worker_id), class: "btn btn-info")
+            = link_to( (fa_icon "user",text: ""), worker_path(wi.worker_id), class: "btn btn-primary")
+            %span.btn.btn-success.link-to-hidden-select{data: {"worker-id": wi.worker_id}}
+              = fa_icon "check", class: 'default-icon'

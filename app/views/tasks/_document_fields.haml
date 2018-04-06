@@ -1,0 +1,6 @@
+%li.nested-fields.field.form-group
+  -# = f.label Document.human_attribute_name(:doc)
+  %span.btn.btn-danger.remove-document
+    = fa_icon(:times)
+  = f.file_field :documents, class: 'form-control-file'
+  = error_messages_for_attr(f.object, :documents)
