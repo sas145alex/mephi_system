@@ -6,11 +6,11 @@
     = Task.model_name.human
 
   .task-wrapper
-    .task-header.row
-      .task-fields.col-sm-12.col-lg-8.col-md-6
+    .task-header
+      .task-fields.row
         -# attribute = description
         -# field_type = text_area
-        .field.form-group
+        .field.form-group.col-sm-12.col-md-7
           = f.label Task.human_attribute_name(:description)
           = f.text_area :description, class: 'form-control'
           = error_messages_for_attr(f.object, :description)
@@ -29,26 +29,35 @@
           = f.hidden_field :direction, class: 'form-control'
           = error_messages_for_attr(f.object, :direction)
 
-      .documents-fields.col-sm-12.col-lg-4.col-md-6
-        .link-and-block-name
-          %span
-            = Task.human_attribute_name(:documents)
-          = link_to_add_association fa_icon(:plus),
-          f, :documents,
-          class: 'btn btn-primary add-document',
-          data:{ association_insertion_node: '#documents',
-          association_insertion_method: :append }
-        %ul#documents.nested-assotiations
-          = f.fields_for :documents do |document|
-            = render 'document_fields', f: document
+        -# attribute = nominated_date_end
+        -# field_type = datetime_select
+        .field.form-group.col-sm-12.col-md-5
+          = f.label Task.human_attribute_name(:nominated_date_end)
+          .input-group.date
+            = f.text_field(:nominated_date_end,
+            value: lnil(f.object.nominated_date_end),
+            class: 'form-control datepicker',
+            aria: {describedby: 'date-addon-nominated_date_end'})
+            .input-group-append
+              %span.input-group-text#date-addon-nominated_date_end
+                = fa_icon(:calendar)
+          = error_messages_for_attr(f.object, :nominated_date_end)
 
-    %hr
+      .documents-fields.row
+        .field.col-sm-12
+          .link-and-block-name
+            %span
+              = Task.human_attribute_name(:documents)
+            = link_to_add_association fa_icon(:plus),
+            f, :documents,
+            class: 'btn btn-primary add-document',
+            data:{ association_insertion_node: '#documents',
+            association_insertion_method: :append }
+          %ul#documents.nested-assotiations
+            = f.fields_for :documents do |document|
+              = render 'document_fields', f: document
 
-
-
-
-
-    .task-body.row
+    .task-worker-wrapper.row
       .workers.col-sm-12.col-lg-12
         .select-department-container
           %h3
@@ -60,13 +69,13 @@
         .checkbox-show-manager-container
           = label_tag('checkbox-manager', t('views.entites.tasks.delegation.show_only_managers'))
           = check_box_tag('checkbox-manager')
-        #workers-result
+        .workers-result
       .receivers.col-sm-12.col-lg-4
         polychateli
         = f.collection_select(:worker_ids,
         Worker.all, :id, :id,
         {include_blank: true},
-        {multiple: true, id: 'worker-ids'})
+        {multiple: false, class: 'select-worker' })
         -# {multiple: true, class: 'select2 select2-selector'})
 
 

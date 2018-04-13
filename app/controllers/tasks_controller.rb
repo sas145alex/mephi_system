@@ -2,8 +2,13 @@ class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy, :delegation]
 
   # GET /tasks
-  def index
-    @tasks = Task.all
+  def index()
+    direction = params[:direction]
+    if direction
+      @tasks = Direction.find(direction).task.subtree
+    else
+      @tasks = Task.all
+    end
   end
 
   # GET /tasks/1
@@ -21,7 +26,6 @@ class TasksController < ApplicationController
 
   # POST /tasks
   def create
-    # raise params.inspect
     @task = Task.new(task_params)
 
     if @task.save
@@ -63,6 +67,14 @@ class TasksController < ApplicationController
     end
   end
 
+  def show_all_delegation
+
+  end
+
+  def show_delegation_to_me
+
+  end
+
 
   # DELETE /tasks/1
   def destroy
@@ -78,6 +90,6 @@ class TasksController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def task_params
-      params.require(:task).permit(:description, :status, :direction_id, :ancestry, worker_ids: [])
+      params.require(:task).permit(:description, :status, :direction_id, :ancestry, :nominated_end_date, worker_ids: [])
     end
 end

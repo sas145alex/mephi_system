@@ -48,7 +48,7 @@
 
 
 
-    .task-body.row
+    .task-worker-wrapper.row
       .workers.col-sm-12.col-lg-8
         .select-department-container
           %h3
@@ -60,7 +60,7 @@
         .checkbox-show-manager-container
           = label_tag('checkbox-manager', t('views.entites.tasks.delegation.show_only_managers'))
           = check_box_tag('checkbox-manager')
-        #workers-result
+        .workers-result
       .receivers.col-sm-12.col-lg-4
         polychateli
         = f.collection_select(:worker_ids,

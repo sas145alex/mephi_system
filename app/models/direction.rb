@@ -25,7 +25,12 @@ class Direction < ApplicationRecord
 
   def create_root_task
     if self.task.nil?
-      self.create_task({description: 'root task', status: 0})
+      attrs = {
+        status: 0,
+        nominated_date_end: self.nominated_date_end,
+        description: 'root task'
+      }
+      self.create_task(attrs)
     end
   end
 end

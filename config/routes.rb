@@ -11,9 +11,15 @@ Rails.application.routes.draw do
       get :delegation
       post :delegation
       post :build_worker_cards
+      get :show_all_delegation
+      get :link_to_show_delegation_to_me
     end
   end
-  resources :directions
+  resources :directions do
+    member do
+
+    end
+  end
   resources :post_departments
   resources :departments do
   end

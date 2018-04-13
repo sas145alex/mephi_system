@@ -34,10 +34,10 @@
             display: flex
             justify-content: center
             align-items: center
-  .task-body
+  .task-worker-wrapper
     .workers
-      #workers-result
-        #workers-result-table
+      .workers-result
+        .workers-result-table
           border: 1px solid #b8b8b8
           margin-top: 5px
           border-radius: 4px
@@ -63,10 +63,10 @@
 
 
 .task-wrapper
-  .task-body
+  .task-worker-wrapper
     .workers
-      #workers-result.show-only-managers
-        #workers-result-table
+      .workers-result.show-only-managers
+        .workers-result-table
           tr[data-manager='false']
             display: none !important
           th.manager
@@ -85,10 +85,10 @@
 // // Medium devices (tablets, less than 992px)
 @media (max-width: 991.99px)
   .task-wrapper
-    .task-body
+    .task-worker-wrapper
       .workers
-        #workers-result
-          #workers-result-table
+        .workers-result
+          .workers-result-table
             td
               .links
                 flex-direction: column
@@ -100,10 +100,10 @@
 //
 // // Large devices (desktops, less than 1200px)
 @media (max-width: 1199.99px)
-    .task-body
+    .task-worker-wrapper
       .workers
-        #workers-result
-          #workers-result-table
+        .workers-result
+          .workers-result-table
             td
               .links
                 flex-direction: row

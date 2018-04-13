@@ -34,17 +34,13 @@
             display: flex
             justify-content: center
             align-items: center
-  .task-body
+  .task-worker-wrapper
     .workers
-      #workers-result
-        #workers-result-table
+      .workers-result
+        .workers-result-table
           border: 1px solid #b8b8b8
           margin-top: 5px
           border-radius: 4px
-
-          // thead, tbody
-          //   min-width: 100%
-
           td
             .links
               display: flex
@@ -58,21 +54,36 @@
                 height: 40px
                 width: 40px
 
-      .checkbox-show-manager-container
-        margin-top: 5px
-
-
-.task-wrapper
-  .task-body
-    .workers
-      #workers-result.show-only-managers
-        #workers-result-table
+      .workers-result.show-only-managers
+        .workers-result-table
           tr[data-manager='false']
-            display: none !important
+            display: none
           th.manager
             display: none
           td.manager
             display: none
+      .workers-result[data-select-worker='true']
+        .workers-result-table
+          tbody
+            tr:not([data-show-only-me='true'])
+              display: none !important
+
+
+      .checkbox-show-manager-container
+        margin-top: 5px
+
+
+// .task-wrapper
+//   .task-worker-wrapper
+//     .workers
+//       .workers-result.show-only-managers
+//         .workers-result-table
+//           tr[data-manager='false']
+//             display: none !important
+//           th.manager
+//             display: none
+//           td.manager
+//             display: none
 
 
 
@@ -85,10 +96,10 @@
 // // Medium devices (tablets, less than 992px)
 @media (max-width: 991.99px)
   // .task-wrapper
-  //   .task-body
+  //   .task-worker-wrapper
   //     .workers
-  //       #workers-result
-  //         #workers-result-table
+  //       .workers-result
+  //         .workers-result-table
   //           td
   //             .links
   //               flex-direction: column
@@ -100,10 +111,10 @@
 //
 // // Large devices (desktops, less than 1200px)
 @media (max-width: 1199.99px)
-    // .task-body
+    // .task-worker-wrapper
     //   .workers
-    //     #workers-result
-    //       #workers-result-table
+    //     .workers-result
+    //       .workers-result-table
     //         td
     //           .links
     //             flex-direction: row

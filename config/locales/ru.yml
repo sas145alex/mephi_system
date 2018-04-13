@@ -282,6 +282,7 @@ ru:
       task:
         description: Описание
         status: Состояние
+        nominated_date_end: Дата сдачи
         direction: Распоряжение
         direction_id: Распоряжение
         documents: Вложения

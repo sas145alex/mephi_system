@@ -37,29 +37,60 @@ select_department_handler = (e) ->
 show_only_managers_handler = (e) ->
   value = $('#checkbox-manager').prop('checked')
   if value
-    $('#workers-result:not([class*="show-only-managers"])').addClass('show-only-managers')
+    $('.workers-result:not([class*="show-only-managers"])').addClass('show-only-managers')
   else
-    $('#workers-result[class*="show-only-managers"]').removeClass('show-only-managers')
+    $('.workers-result[class*="show-only-managers"]').removeClass('show-only-managers')
 
 @links_hidden_select_handler = (e) ->
   value = $(this).attr('data-worker-id')
-  already_selected_values = $('#worker-ids').val()
-  searched_indx = -1
-  $.each(already_selected_values, (i,item) ->
-    if item == value
-      searched_indx = i)
-  if searched_indx >= 0
-    already_selected_values.splice(searched_indx,1)
+  hidden_select = $(this).parents('.task-worker-wrapper').find('.receivers .select-worker').first()
+  target_for_data_attr = $(this).parents('.task-worker-wrapper').find('.workers-result')
+  handle_links_colors_and_manager_checkbox($(this), hidden_select)
+  handle_hidden_select(value, hidden_select, target_for_data_attr)
+
+@handle_links_colors_and_manager_checkbox = (item, selector) ->
+  # item - элемент ссылки
+  # selector - выпадающий скрытый список с id
+
+  val = item.attr('data-worker-id')
+  all_links = item.parents('.workers-result-table').find('.link-to-hidden-select')
+  manager_checkbox = item.parents('.task-wrapper').find('.checkbox-show-manager-container').find('input').first()
+  # все линки делаем зелеными
+  all_links.each (i, link) ->
+    $(link).attr('class', 'btn btn-success link-to-hidden-select')
+    $(link).find('.fa').first().attr('class','fa fa-check default-icon')
+    $(link).removeAttr('data-show-only-me')
+  if val == selector.val()
+    item.parents('tr').removeAttr('data-show-only-me')
+    manager_checkbox.removeAttr('disabled')
   else
-    already_selected_values.push(value)
-  $(this).toggleClass('btn-success btn-danger')
-  $(this).find('i').toggleClass('fa-times fa-check')
-  new_values = already_selected_values
-  $('#worker-ids').val(new_values)
+    # если входное значение и значение в списке разные
+    # только этот линк делаем красным, остальные зеленые
+    item.attr('class','btn btn-danger link-to-hidden-select')
+    item.find('.fa').first().attr('class','fa fa-times default-icon')
+    # добавляем дата-атрибут, при помощи css скрываем все остальные
+    item.parents('tr').attr('data-show-only-me', 'true')
+    manager_checkbox.attr('disabled','disabled')
+
+
+
+@handle_hidden_select = (val, selector, container_for_data_attr) ->
+  # если удаляем - то убираем дата-атрибут и очищаем список
+  # если добавляем - то добавляем дата-атрибут и вносим занчение в список
+  # val = входное значение
+  # selector = скрытый список для которого сравниваем val
+  # container_for_data_attr = контейнер
+  #   для дата-атрибута (при помощи css скрываем все остальные записи)
+  if val != selector.val()
+    selector.val(val)
+    container_for_data_attr.attr('data-select-worker','true')
+  else
+    selector.val(0)
+    container_for_data_attr.attr('data-select-worker','false')
 
 activate_remove_document_links = (e, inserted_item) ->
   $(inserted_item).find('.remove-document').click( ->
     $(this).parent('li').remove() )
 
 remove_document_handler = () ->
-  $(this).parent('li').remove() 
+  $(this).parent('li').remove()

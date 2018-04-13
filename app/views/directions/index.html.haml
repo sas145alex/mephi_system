@@ -9,24 +9,25 @@
   %thead
     %tr
       %th= Direction.human_attribute_name(:name)
-      -# %th= Direction.human_attribute_name(:status)
+      %th= Direction.human_attribute_name(:status)
       -# %th= Direction.human_attribute_name(:receive_date)
       %th= Direction.human_attribute_name(:nominated_date_end)
       -# %th= Direction.human_attribute_name(:finish_date)
-      %th
-      %th
-      %th
+      %th.links
 
   %tbody
     - @directions.order(:created_at).each do |direction|
       %tr
         %td= direction.name
-        -# %td= direction.status
+        %td= direction.status
         -# %td= direction.receive_date
         %td= direction.nominated_date_end
         -# %td= direction.finish_date
-        %td= link_to_show(direction)
-        %td= link_to_edit(edit_direction_path(direction))
-        %td= link_to_destroy(direction)
+        %td.links
+          = link_to_show(direction, '')
+          = link_to_show_all_delegation(direction.task, '')
+          = link_to_my_tasks(direction, '')
+          -# = link_to_edit(edit_direction_path(direction), '')
+          -# = link_to_destroy(direction, '')
 
 %br
